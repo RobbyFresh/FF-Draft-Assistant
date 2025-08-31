@@ -823,7 +823,8 @@
 
   async function init() {
     try {
-      const res = await fetch(`/api/workbook?cb=${Date.now()}`, { cache: 'no-store' });
+      const apiPath = (window && window.location && window.location.hostname.includes('vercel.app')) ? '/api/workbook' : '/api/workbook';
+      const res = await fetch(`${apiPath}?cb=${Date.now()}`, { cache: 'no-store' });
       const data = await res.json();
       if (!res.ok) {
         throw new Error(data?.error || 'Failed to load workbook');

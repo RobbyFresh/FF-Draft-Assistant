@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "api/workbook.js", "use": "@vercel/node" },
+    { "src": "server.js", "use": "@vercel/node" },
+    { "src": "public/**", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/api/workbook", "dest": "/api/workbook.js" },
+    { "src": "/(.*)", "dest": "/public/$1" }
+  ]
+}
+
