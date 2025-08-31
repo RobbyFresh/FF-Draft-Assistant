@@ -4,7 +4,7 @@ const XLSX = require('xlsx');
 
 // Serverless function for Vercel: /api/workbook
 // Looks for the Excel file in several common locations within the deployment
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
   try {
     const fileName = process.env.EXCEL_FILENAME || 'Fantasy Football Cheat Sheet with Boom Outlier 2025.xlsx';
 
