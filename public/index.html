@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fantasy Football Draft Assistant (2025)</title>
+    <link rel="stylesheet" href="/styles.css?v=2" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1 id="page-title">Fantasy Football Draft Assistant (2025)</h1>
+      <div id="status" class="status tip-inline">Loading workbook…</div>
+      <button id="refresh-page" class="btn header-refresh" title="Refresh data">Refresh</button>
+    </header>
+
+    <main class="container" style="position:relative;">
+      <nav id="tabs" class="tabs" aria-label="Sheets">
+        <button id="boom-toggle" class="btn boom-btn" aria-pressed="false" title="Highlight Boom/Bust rows">BOOM / BUST</button>
+        <div class="search-container">
+          <input id="player-search" class="search-input" type="search" placeholder="Search players..." aria-label="Search players" />
+        </div>
+      </nav>
+      <section id="sheet-container" class="sheet-container"></section>
+    </main>
+
+    <aside id="my-team" class="my-team" aria-label="My Team Sidebar">
+      <div class="pane" style="display:flex;flex-direction:column;min-height:0;">
+        <div class="my-team-header"><span>My Team</span><button class="btn btn-reset" id="reset-all" title="Reset roster and selections">Reset</button></div>
+        <div class="roster-controls">
+          <div class="controls">
+            <select id="slot-type" aria-label="Slot type">
+              <option value="QB">QB</option>
+              <option value="RB">RB</option>
+              <option value="WR">WR</option>
+              <option value="TE">TE</option>
+              <option value="FLEX">FLEX</option>
+              <option value="SFLX">SUPERFLEX</option>
+              <option value="K">K</option>
+              <option value="DST">DST</option>
+              <option value="BENCH">BENCH</option>
+            </select>
+            <button class="btn" id="add-slot" title="Add slot">Add</button>
+            <button class="btn" id="remove-slot" title="Remove slot">Remove</button>
+          </div>
+        </div>
+        <div id="roster-grid" class="roster-grid"></div>
+      </div>
+      <div id="pane-splitter" class="pane-splitter" role="separator" aria-orientation="horizontal" aria-label="Resize panes" tabindex="0"></div>
+      <div class="pane">
+        <div class="my-team-header">Taken</div>
+        <ul id="taken-list" class="my-team-list" style="overflow:auto;flex:1;min-height:0;"></ul>
+      </div>
+    </aside>
+
+    <footer class="site-footer">
+      <span>Served locally by Express. Data updates when you refresh.</span>
+    </footer>
+
+    <script src="/app.js?v=2" defer></script>
+  </body>
+  </html>
+
+
