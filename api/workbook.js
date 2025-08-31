@@ -20,11 +20,22 @@ module.exports = (req, res) => {
       try { return fs.existsSync(p); } catch { return false; }
     });
 
-    if (!excelPath) {
-      return res.status(404).json({ error: `Excel file not found. Tried: ${candidates.join(' | ')}` });
+    let workbook;
+    if (excelPath) {
+      workbook = XLSX.readFile(excelPath, { cellDates: true });
+    } else {
+      // Try fetching from static hosting (public/) over HTTP on Vercel
+      const proto = req.headers['x-forwarded-proto'] || 'https';
+      const host = req.headers.host;
+      const url = `${proto}://${host}/${encodeURIComponent(fileName)}`;
+      const resp = await fetch(url);
+      if (!resp.ok) {
+        return res.status(404).json({ error: `Excel file not found locally or via HTTP at ${url}. Tried: ${candidates.join(' | ')}` });
+      }
+      const ab = await resp.arrayBuffer();
+      const buf = Buffer.from(ab);
+      workbook = XLSX.read(buf, { type: 'buffer', cellDates: true });
     }
-
-    const workbook = XLSX.readFile(excelPath, { cellDates: true });
     const sheets = workbook.SheetNames.map((sheetName) => {
       const sheet = workbook.Sheets[sheetName];
       const rows = XLSX.utils.sheet_to_json(sheet, {
