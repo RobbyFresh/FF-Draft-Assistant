@@ -1,11 +1,11 @@
 :root {
-  --bg: #0f172a;
-  --bg-soft: #111827;
-  --panel: #111827;
+  --bg: #000000;
+  --bg-soft: #050505;
+  --panel: #0a0a0a;
   --text: #e5e7eb;
   --muted: #9ca3af;
   --accent: #22c55e;
-  --border: #1f2937;
+  --border: #262626;
   --sidebar-width: max(14vw, 240px);
   --header-h: 56px;
   --tabs-h: 48px;
@@ -50,7 +50,7 @@ body {
 .sheet-container { border: 1px solid var(--border); border-radius: 8px; background: var(--panel); width: calc(100vw - var(--sidebar-width) - 48px); height: calc(100vh - var(--header-h) - var(--tabs-h) - var(--bottom-bar-h) - 16px); overflow: hidden; }
 
 table { width: 100%; border-collapse: collapse; }
-thead { position: sticky; top: 0; background: #0b1220; z-index: 4; }
+thead { position: sticky; top: 0; background: var(--bg-soft); z-index: 4; }
 th, td { padding: 8px 12px; border-bottom: 1px solid var(--border); }
 th { text-align: left; font-weight: 600; cursor: pointer; white-space: normal; line-height: 1.25; overflow-wrap: break-word; word-break: normal; hyphens: auto; max-width: 28ch; }
 td { white-space: nowrap; }
@@ -89,14 +89,14 @@ tr:hover td { background: rgba(255,255,255,0.02); }
 
 /* Sticky first column for better visibility of player names */
 .sticky-col { position: sticky; left: 0; background: var(--panel); z-index: 2; box-shadow: 1px 0 0 var(--border); }
-th.sticky-col { background: #0b1220; z-index: 3; }
+th.sticky-col { background: var(--bg-soft); z-index: 3; }
 
 /* Multi-sticky left columns (checkbox, checkbox, player) */
 .sticky-left-0, .sticky-left-1, .sticky-left-2 { position: sticky; background: var(--panel); z-index: 2; box-shadow: 1px 0 0 var(--border); }
 .sticky-left-0 { left: 0; }
 .sticky-left-1 { left: 56px; }
 .sticky-left-2 { left: 112px; }
-th.sticky-left-0, th.sticky-left-1, th.sticky-left-2 { background: #0b1220; z-index: 3; }
+th.sticky-left-0, th.sticky-left-1, th.sticky-left-2 { background: var(--bg-soft); z-index: 3; }
 
 /* Narrow checkbox columns */
 .col-checkbox { width: 56px; min-width: 56px; max-width: 56px; text-align: center; }
@@ -121,9 +121,9 @@ body { padding-bottom: 24px; }
 
 /* Fixed right sidebar: My Team */
 .my-team { position: fixed; top: 0; right: 0; width: var(--sidebar-width); height: 100vh; background: var(--bg-soft); border-left: 1px solid var(--border); display: grid; grid-template-rows: var(--pane-top, 1fr) 8px var(--pane-bottom, 1fr); }
-.pane-splitter { background: #0b1220; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); cursor: row-resize; }
+.pane-splitter { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); cursor: row-resize; }
 .my-team-header { padding: 12px 16px; font-weight: 600; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.btn-reset { background: #1e293b; border-color: #334155; }
+.btn-reset { background: #111111; border-color: var(--border); }
 .roster-controls { padding: 8px 12px; border-bottom: 1px solid var(--border); }
 .roster-controls .controls { display: flex; gap: 8px; align-items: center; }
 .btn { padding: 6px 10px; border: 1px solid var(--border); background: var(--panel); color: var(--text); border-radius: 6px; cursor: pointer; }
@@ -131,7 +131,7 @@ body { padding-bottom: 24px; }
 .roster-row { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: start; border-bottom: 1px dashed var(--border); padding-bottom: 6px; }
 .roster-row-title { font-weight: 600; color: var(--muted); }
 .slot-list { display: flex; flex-wrap: wrap; gap: 6px; }
-.chip { display: inline-flex; align-items: center; gap: 6px; background: #1f2937; border: 1px solid var(--border); border-radius: 999px; padding: 2px 8px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; background: #171717; border: 1px solid var(--border); border-radius: 999px; padding: 2px 8px; }
 .chip .remove { background: transparent; color: var(--muted); border: none; cursor: pointer; }
 .pane { display: flex; flex-direction: column; min-height: 0; }
 /* removed simple list UI */
@@ -139,5 +139,4 @@ body { padding-bottom: 24px; }
 @media (max-width: 768px) {
   th, td { white-space: normal; }
 }
-
 
