@@ -29,6 +29,20 @@ assert.equal(DraftRoom.teamForPick(25, 12).teamId, 'team-1');
 assert.equal(DraftRoom.nextPickForTeam(5, 'team-4', 12, 204, true), 21);
 assert.equal(DraftRoom.nextPickForTeam(4, 'team-4', 12, 204, false), 21);
 assert.equal(DraftRoom.nextPickBoardIndex(46, 51), 5, 'pick #51 must be the sixth available row when #46 is on the clock');
+assert.deepEqual(
+  DraftRoom.sortByDisplayRank([
+    { name: 'Late', boardRank: 155.1, marketRank: 155.1 },
+    { name: 'First Tie B', boardRank: 42.5, marketRank: 42.5 },
+    { name: 'First Tie A', boardRank: 42.5, marketRank: 42.5 },
+    { name: 'Market Fallback', boardRank: null, marketRank: 90 },
+  ]).map((player) => player.name),
+  ['First Tie A', 'First Tie B', 'Market Fallback', 'Late'],
+  'Will He Make It Back players must display by active scoring-format rank, not watch order or priority',
+);
+assert.equal(DraftRoom.returnRiskLabel(54), 'can-wait');
+assert.equal(DraftRoom.returnRiskLabel(55), 'pivot');
+assert.equal(DraftRoom.returnRiskLabel(69), 'pivot');
+assert.equal(DraftRoom.returnRiskLabel(70), 'take-now');
 
 let session = DraftRoom.newSession(profile);
 assert.deepEqual(session.watchlist, [], 'a new draft must start with an empty manual return-risk watchlist');
@@ -156,8 +170,8 @@ assert.equal(jaydenRisk.boardSlot, 6, '#51 must be displayed as the sixth availa
 assert.equal(jaydenRisk.opponentPicks, 4, 'four opponent picks occur after the current user pick');
 assert.equal(jaydenRisk.needTeams, 2);
 assert.equal(jaydenRisk.needPicks, 4, 'both QB-needy teams pick twice before #51');
-assert(jaydenRisk.risk < 70 && jaydenRisk.risk >= 60);
-assert.equal(jaydenRisk.label, 'pivot', '60–69% urgency must remain a pivot under the stricter threshold');
+assert(jaydenRisk.risk < 70 && jaydenRisk.risk >= 55);
+assert.equal(jaydenRisk.label, 'pivot', '55–69% urgency must be a pivot');
 assert(lutherRisk.risk >= 70);
 assert.equal(lutherRisk.label, 'take-now', 'a WR already above the next-pick rank should not be a generic pivot');
 
@@ -274,6 +288,14 @@ const noTeProfile = DraftRoom.makeProfile({
     { type: 'FLEX', count: 2 }, { type: 'BENCH', count: 4 },
   ],
 });
+const noTeOpenFlexAllocation = DraftRoom.allocateRoster([
+  { overall: 1, position: 'QB' }, { overall: 2, position: 'RB' }, { overall: 3, position: 'WR' },
+], noTeProfile.rosterTemplate);
+assert.equal(
+  DraftRoom.teamNeedScore(noTeProfile, null, 'team-2', 'TE', 7, noTeOpenFlexAllocation),
+  DraftRoom.teamNeedScore(noTeProfile, null, 'team-2', 'RB', 7, noTeOpenFlexAllocation),
+  'a projection-qualified TE and RB must receive equal need weight for the same open FLEX slot when no TE starter is configured',
+);
 const dedicatedTeProfile = DraftRoom.makeProfile({
   ...noTeProfile,
   id: 'dedicated-te-risk',
@@ -296,6 +318,76 @@ assert(
   dedicatedTeIntel.find((player) => player.playerKey === 'high-proj-te').needPressure > noTeHigh.needPressure,
   'a dedicated TE slot must create more positional pressure than flex-only TE eligibility',
 );
+
+const evolvingProfile = DraftRoom.makeProfile({
+  id: 'evolving-rosters', teamCount: 4, userSlot: 1, rounds: 8, scoring: 'ppr',
+  rosterTemplate: [
+    { type: 'QB', count: 1 }, { type: 'RB', count: 1 }, { type: 'WR', count: 1 },
+    { type: 'FLEX', count: 1 }, { type: 'BENCH', count: 4 },
+  ],
+});
+const evolvingPicks = [];
+for (const teamId of ['team-2', 'team-3', 'team-4']) {
+  evolvingPicks.push(
+    { overall: evolvingPicks.length + 1, teamId, playerKey: `${teamId}-rb`, position: 'RB' },
+    { overall: evolvingPicks.length + 1, teamId, playerKey: `${teamId}-wr1`, position: 'WR' },
+    { overall: evolvingPicks.length + 1, teamId, playerKey: `${teamId}-wr2`, position: 'WR' },
+  );
+}
+const evolvingSession = { ...DraftRoom.newSession(evolvingProfile), nextOverall: 1, picks: evolvingPicks };
+const initialBenchRbNeed = DraftRoom.teamNeedScore(
+  evolvingProfile,
+  evolvingSession,
+  'team-2',
+  'RB',
+  1,
+  DraftRoom.allocateRoster(evolvingPicks.filter((pick) => pick.teamId === 'team-2'), evolvingProfile.rosterTemplate),
+);
+const evolvingIntel = DraftRoom.buildReturnIntel([
+  { playerKey: 'evolving-rb', name: 'Evolving RB', position: 'RB', marketRank: 8, boardRank: 8, tier: 'Tier 2' },
+], evolvingProfile, evolvingSession)[0];
+assert(
+  evolvingIntel.needPressure > initialBenchRbNeed,
+  'a team picking twice must have its missing QB projected into the first pick before its later RB-depth demand is measured',
+);
+
+// Regression for the #77 screenshot: market ranks around the user's next pick
+// must remain meaningful even when most intervening teams currently have a
+// different open starter. Roster context can discount that baseline, but must
+// not turn rank 87.5 before pick 92 into only a 45% return risk (or a flex-only
+// TE at a comparable rank into 19%).
+const pick92Profile = DraftRoom.makeProfile({
+  id: 'pick-92-regression', teamCount: 12, userSlot: 5, rounds: 13, scoring: 'halfPpr',
+  rosterTemplate: [
+    { type: 'QB', count: 1 }, { type: 'RB', count: 2 }, { type: 'WR', count: 2 },
+    { type: 'FLEX', count: 2 }, { type: 'DST', count: 1 }, { type: 'BENCH', count: 5 },
+  ],
+});
+const pick92Shapes = {
+  'team-6': ['RB', 'RB', 'WR', 'WR', 'RB', 'WR'],
+  'team-7': ['QB', 'RB', 'WR', 'WR', 'WR', 'WR'],
+  'team-8': ['RB', 'RB', 'WR', 'WR', 'RB', 'WR'],
+  'team-9': ['QB', 'RB', 'RB', 'WR', 'WR', 'WR'],
+  'team-10': ['RB', 'RB', 'WR', 'WR', 'RB', 'WR'],
+  'team-11': ['QB', 'RB', 'RB', 'RB', 'RB', 'WR'],
+  'team-12': ['QB', 'RB', 'RB', 'WR', 'WR', 'WR'],
+};
+let pick92Overall = 1;
+const pick92Picks = Object.entries(pick92Shapes).flatMap(([teamId, positions]) => positions.map((position) => ({
+  overall: pick92Overall,
+  teamId,
+  playerKey: `pick-92-drafted-${pick92Overall++}`,
+  position,
+})));
+const pick92Session = { ...DraftRoom.newSession(pick92Profile), nextOverall: 77, picks: pick92Picks };
+const pick92Intel = DraftRoom.buildReturnIntel([
+  { playerKey: 'pick-92-rb', name: 'Rank 87.5 RB', position: 'RB', marketRank: 87.5, boardRank: 87.5 },
+  { playerKey: 'pick-92-te', name: 'Rank 89.7 TE', position: 'TE', marketRank: 89.7, boardRank: 89.7, projectedPoints: 138.3 },
+], pick92Profile, pick92Session);
+const pick92Rb = pick92Intel.find((player) => player.playerKey === 'pick-92-rb');
+const pick92Te = pick92Intel.find((player) => player.playerKey === 'pick-92-te');
+assert(pick92Rb.risk >= 55, `rank 87.5 RB before pick 92 should preserve its ADP baseline, received ${pick92Rb.risk}%`);
+assert(pick92Te.risk >= 40, `projection-qualified flex TE before pick 92 should preserve its rank baseline, received ${pick92Te.risk}%`);
 
 const importPlayers = riskPlayers.concat([{ playerKey: 'nfl:gibbs', id: 'gibbs', name: 'Jahmyr Gibbs', position: 'RB' }]);
 const imported = DraftRoom.parseImportText('Team 2 — Jahmyr Gibbs\nTarget Back\nUnknown Person', importPlayers, smallProfile, 1, []);

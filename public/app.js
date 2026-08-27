@@ -630,7 +630,9 @@
     if (!decisionListEl) return;
     decisionListEl.innerHTML = '';
     const byKey = new Map(intel.map((item) => [item.playerKey, item]));
-    const watched = (draftSession.watchlist || []).map((key) => byKey.get(key)).filter(Boolean);
+    const watched = DraftRoom.sortByDisplayRank(
+      (draftSession.watchlist || []).map((key) => byKey.get(key)).filter(Boolean),
+    );
     watched.forEach((item) => {
       const card = document.createElement('div');
       card.className = 'decision-card-wrap';
