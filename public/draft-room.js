@@ -191,7 +191,7 @@
     const hasTeFlexPath = profile.rosterTemplate.some((slot) => ['FLEX', 'SFLX'].includes(slot.type) && slot.count > 0);
     if (!hasStarterPath(profile, pos)) return 0.22;
     if (pos === 'QB') return hasSuperflex ? (round <= 5 ? 1.2 : 1) : (round <= 2 ? 0.55 : round <= 8 ? 1 : 0.8);
-    if (pos === 'TE' && !hasDedicatedTe) return hasTeFlexPath ? (round <= 8 ? 0.72 : 0.82) : 0.22;
+    if (pos === 'TE' && !hasDedicatedTe) return hasTeFlexPath ? 1 : 0.22;
     if (pos === 'TE') return round <= 3 ? 0.7 : 0.95;
     if (pos === 'K' || pos === 'DST') return round <= 10 ? 0.05 : 0.75;
     return 1;
@@ -207,9 +207,9 @@
     if ((allocation.remaining[pos] || 0) > 0) need = 1;
     else if (pos === 'QB' && (allocation.remaining.SFLX || 0) > 0) need = 0.94;
     else if (['RB', 'WR'].includes(pos) && (allocation.remaining.FLEX || 0) > 0) need = 0.78;
-    else if (pos === 'TE' && (allocation.remaining.FLEX || 0) > 0) need = hasDedicatedTe ? 0.66 : 0.52;
+    else if (pos === 'TE' && (allocation.remaining.FLEX || 0) > 0) need = hasDedicatedTe ? 0.66 : 0.78;
     else if (['RB', 'WR'].includes(pos) && (allocation.remaining.SFLX || 0) > 0) need = 0.52;
-    else if (pos === 'TE' && (allocation.remaining.SFLX || 0) > 0) need = hasDedicatedTe ? 0.44 : 0.36;
+    else if (pos === 'TE' && (allocation.remaining.SFLX || 0) > 0) need = hasDedicatedTe ? 0.44 : 0.52;
     else if ((allocation.remaining.BENCH || 0) > 0) need = openPriorityStarters > 0 ? 0.1 : 0.28;
     const positionCount = allocation.positionCounts[pos] || 0;
     if (positionCount >= 4 && !(allocation.remaining[pos] || 0)) need *= 0.55;
@@ -231,7 +231,7 @@
     if ((allocation.remaining[pos] || 0) > 0) return 1;
     if (pos === 'QB' && hasSuperflex && (allocation.remaining.SFLX || 0) > 0) return 1;
     if (pos === 'TE' && ((allocation.remaining.FLEX || 0) > 0 || (allocation.remaining.SFLX || 0) > 0)) {
-      return hasDedicatedTe ? 0.72 : 0.55;
+      return 0.72;
     }
     if (pos === 'QB') {
       if (round <= 8) return positionCount === 1 ? 0.12 : 0.06;
@@ -349,6 +349,32 @@
     return new Map(projected.map((player, index) => [player.playerKey, marketSlots[index]]));
   }
 
+  function sortByDisplayRank(players) {
+    const rank = (player) => {
+      const boardRank = Number(player?.boardRank);
+      if (Number.isFinite(boardRank) && boardRank > 0) return boardRank;
+      const marketRank = Number(player?.marketRank);
+      return Number.isFinite(marketRank) && marketRank > 0 ? marketRank : Number.POSITIVE_INFINITY;
+    };
+    return [...(players || [])].sort((a, b) => rank(a) - rank(b)
+      || String(a?.name || '').localeCompare(String(b?.name || ''), undefined, { sensitivity: 'base' }));
+  }
+
+  // If an opponent has multiple picks before the user returns, later picks
+  // should see a roster advanced by the earlier selection. Use configured
+  // needs to choose a representative alternative player for that earlier
+  // pick; this is an expected roster path, not a claim about the exact player.
+  function expectedAlternativePosition(profile, allocation, round) {
+    const preference = { RB: 1, WR: 0.99, QB: 0.94, TE: 0.86 };
+    if (!profile.rosterTemplate.some((slot) => slot.type === 'TE' && slot.count > 0)) preference.TE = 0.68;
+    return ['QB', 'RB', 'WR', 'TE'].map((position) => {
+      const need = teamNeedScore(profile, null, 'projected-team', position, round, allocation)
+        * duplicatePositionFactor(profile, null, 'projected-team', position, round, allocation);
+      return { position, score: need * preference[position], count: allocation.positionCounts[position] || 0 };
+    }).sort((a, b) => b.score - a.score || a.count - b.count
+      || ['QB', 'TE', 'RB', 'WR'].indexOf(a.position) - ['QB', 'TE', 'RB', 'WR'].indexOf(b.position))[0]?.position || 'WR';
+  }
+
   function buildReturnIntel(players, profile, session, availabilityModel = {}) {
     const current = session.nextOverall;
     const scheduled = teamForPick(current, profile.teamCount);
@@ -370,6 +396,21 @@
       team.id,
       allocateRoster(picksForTeam(session, team.id), profile.rosterTemplate),
     ]));
+    const projectedPicks = new Map(profile.teams.map((team) => [team.id, [...picksForTeam(session, team.id)]]));
+    const interveningAllocations = intervening.map((pick) => {
+      const teamPicks = projectedPicks.get(pick.teamId) || [];
+      const allocation = allocateRoster(teamPicks, profile.rosterTemplate);
+      const expectedPosition = expectedAlternativePosition(profile, allocation, pick.round);
+      teamPicks.push({
+        overall: pick.overall,
+        teamId: pick.teamId,
+        playerKey: `projected:${pick.overall}`,
+        name: 'Projected intervening selection',
+        position: expectedPosition,
+      });
+      projectedPicks.set(pick.teamId, teamPicks);
+      return allocation;
+    });
 
     return available.map((player) => {
       const pos = normalizePosition(player.position);
@@ -393,9 +434,9 @@
       const rankPressure = validRank(player.boardRank)
         ? boardPressure * 0.62 + marketPressure * 0.38
         : marketPressure;
-      const needScores = intervening.map((pick) => teamNeedScore(profile, session, pick.teamId, pos, pick.round, rosterAllocations.get(pick.teamId)));
+      const needScores = intervening.map((pick, index) => teamNeedScore(profile, session, pick.teamId, pos, pick.round, interveningAllocations[index]));
       const demandScores = intervening.map((pick, index) => clamp(
-        needScores[index] * duplicatePositionFactor(profile, session, pick.teamId, pos, pick.round, rosterAllocations.get(pick.teamId)),
+        needScores[index] * duplicatePositionFactor(profile, session, pick.teamId, pos, pick.round, interveningAllocations[index]),
         0,
         1.2,
       ));
@@ -410,7 +451,10 @@
         // may scale that player-specific hazard, but must never create an
         // independent floor or substitute generic positional demand for the
         // chance that this particular player is selected.
-        const demandFactor = clamp(0.15 + demandScores[index] * 1.4, 0.15, 1.6);
+        // ADP/board rank already reflects the league-wide chance that this
+        // specific player is selected. Team need should move that baseline,
+        // not nearly erase it whenever a roster has another open starter.
+        const demandFactor = clamp(0.55 + demandScores[index] * 1.05, 0.55, 1.6);
         return probability * (1 - clamp(baselineRankHazard * demandFactor, 0, 0.58));
       }, 1);
       const sameTier = available.filter((candidate) => normalizePosition(candidate.position) === pos && candidate.tier && candidate.tier === player.tier).length;
@@ -580,6 +624,7 @@
     playerKey,
     recordPick,
     rosterNeeds,
+    sortByDisplayRank,
     teamForPick,
     teamNeedScore,
     teamSummary,
