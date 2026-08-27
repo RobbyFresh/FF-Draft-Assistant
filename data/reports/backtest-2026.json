@@ -1,0 +1,1929 @@
+{
+  "generatedAt": "2026-08-20T18:00:26.817Z",
+  "method": "Rolling no-lookahead folds. Each test season uses Aug. 31-or-earlier ECR, only earlier-season data to choose position weights, prior-year volume/dominance/sample-shrunk efficiency/production/trajectory, and next-season positional finish. The ECR-only baseline is the observed hit rate among players in the same position and market-rank band.",
+  "featureDefinitions": {
+    "volume": "Per-game attempts, weighted opportunities, or targets.",
+    "dominance": "QB rushing value; RB carry/target role; WR/TE WOPR from target and air-yard shares.",
+    "efficiency": "EPA and yardage per opportunity, shrunk toward average for small samples.",
+    "production": "Prior PPR points per game; availability is not used as an injury forecast.",
+    "trajectory": "Two-year opportunity trend, early-career curve, and rookie draft capital.",
+    "reversion": "Two-year touchdown and per-game production mean reversion, damped for early-career breakouts; older RB workload spikes receive an added penalty.",
+    "floor": "QB rushing production, passing depth, and sack-rate floor.",
+    "context": "Time-safe August team context reconstructed from current-team ECR: target vacancy, incoming weapons, teammate competition, QB change, and team TE usage."
+  },
+  "seasons": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "folds": [
+    {
+      "season": 2022,
+      "matchedPlayers": 277,
+      "edgeSelections": 56,
+      "edgeHitRate": 0.321,
+      "baselineHitRate": 0.31,
+      "positions": {
+        "QB": {
+          "matchedPlayers": 31,
+          "weights": {
+            "volume": 0.25,
+            "dominance": 0.18,
+            "efficiency": 0.12,
+            "production": 0.08,
+            "trajectory": 0.08,
+            "reversion": 0.17,
+            "floor": 0.12
+          },
+          "selections": 4,
+          "edgeHitRate": 0.25,
+          "baselineHitRate": 0.25,
+          "lift": 0,
+          "regressionRisk": {
+            "weights": {
+              "reversion": 0.2,
+              "floor": 0.65,
+              "context": 0.15
+            },
+            "selections": 10,
+            "hitRate": 0.4,
+            "baselineHitRate": 0.435,
+            "lift": -0.035
+          }
+        },
+        "RB": {
+          "matchedPlayers": 94,
+          "weights": {
+            "volume": 0.44,
+            "dominance": 0.25,
+            "efficiency": 0.07,
+            "production": 0.14,
+            "trajectory": 0.1
+          },
+          "selections": 27,
+          "edgeHitRate": 0.333,
+          "baselineHitRate": 0.313,
+          "lift": 0.02,
+          "regressionRisk": {
+            "weights": {
+              "reversion": 0.7,
+              "context": 0.3
+            },
+            "selections": 13,
+            "hitRate": 0.462,
+            "baselineHitRate": 0.455,
+            "lift": 0.007
+          }
+        },
+        "WR": {
+          "matchedPlayers": 111,
+          "weights": {
+            "volume": 0.2,
+            "dominance": 0.28,
+            "efficiency": 0.08,
+            "production": 0.1,
+            "trajectory": 0.14,
+            "reversion": 0.2
+          },
+          "selections": 20,
+          "edgeHitRate": 0.35,
+          "baselineHitRate": 0.31,
+          "lift": 0.04,
+          "regressionRisk": {
+            "weights": {
+              "reversion": 0.55,
+              "context": 0.45
+            },
+            "selections": 22,
+            "hitRate": 0.364,
+            "baselineHitRate": 0.45,
+            "lift": -0.087
+          }
+        },
+        "TE": {
+          "matchedPlayers": 41,
+          "weights": {
+            "volume": 0.22,
+            "dominance": 0.28,
+            "efficiency": 0.06,
+            "production": 0.1,
+            "trajectory": 0.14,
+            "reversion": 0.2
+          },
+          "selections": 5,
+          "edgeHitRate": 0.2,
+          "baselineHitRate": 0.333,
+          "lift": -0.133,
+          "regressionRisk": {
+            "weights": {
+              "reversion": 0.7,
+              "context": 0.3
+            },
+            "selections": 9,
+            "hitRate": 0.444,
+            "baselineHitRate": 0.509,
+            "lift": -0.064
+          }
+        }
+      }
+    },
+    {
+      "season": 2023,
+      "matchedPlayers": 274,
+      "edgeSelections": 57,
+      "edgeHitRate": 0.246,
+      "baselineHitRate": 0.287,
+      "positions": {
+        "QB": {
+          "matchedPlayers": 32,
+          "weights": {
+            "volume": 0.25,
+            "dominance": 0.18,
+            "efficiency": 0.12,
+            "production": 0.08,
+            "trajectory": 0.08,
+            "reversion": 0.17,
+            "floor": 0.12
+          },
+          "selections": 3,
+          "edgeHitRate": 0.333,
+          "baselineHitRate": 0.167,
+          "lift": 0.167,
+          "regressionRisk": {
+            "weights": {
+              "reversion": 0.2,
+              "floor": 0.65,
+              "context": 0.15
+            },
+            "selections": 5,
+            "hitRate": 0.2,
+            "baselineHitRate": 0.417,
+            "lift": -0.217
+          }
+        },
+        "RB": {
+          "matchedPlayers": 84,
+          "weights": {
+            "volume": 0.27,
+            "dominance": 0.21,
+            "efficiency": 0.04,
+            "production": 0.07,
+            "trajectory": 0.1,
+            "reversion": 0.18,
+            "context": 0.13
+          },
+          "selections": 20,
+          "edgeHitRate": 0.25,
+          "baselineHitRate": 0.264,
+          "lift": -0.014,
+          "regressionRisk": {
+            "weights": {
+              "reversion": 0.4,
+              "context": 0.6
+            },
+            "selections": 21,
+            "hitRate": 0.381,
+            "baselineHitRate": 0.397,
+            "lift": -0.016
+          }
+        },
+        "WR": {
+          "matchedPlayers": 124,
+          "weights": {
+            "volume": 0.3,
+            "dominance": 0.36,
+            "efficiency": 0.07,
+            "production": 0.13,
+            "trajectory": 0.14
+          },
+          "selections": 30,
+          "edgeHitRate": 0.267,
+          "baselineHitRate": 0.319,
+          "lift": -0.053,
+          "regressionRisk": {
+            "weights": {
+              "reversion": 0.4,
+              "context": 0.6
+            },
+            "selections": 32,
+            "hitRate": 0.438,
+            "baselineHitRate": 0.563,
+            "lift": -0.125
+          }
+        },
+        "TE": {
+          "matchedPlayers": 34,
+          "weights": {
+            "volume": 0.34,
+            "dominance": 0.31,
+            "efficiency": 0.06,
+            "production": 0.13,
+            "trajectory": 0.16
+          },
+          "selections": 4,
+          "edgeHitRate": 0,
+          "baselineHitRate": 0.25,
+          "lift": -0.25,
+          "regressionRisk": {
+            "weights": {
+              "reversion": 0.7,
+              "context": 0.3
+            },
+            "selections": 7,
+            "hitRate": 0.429,
+            "baselineHitRate": 0.4,
+            "lift": 0.029
+          }
+        }
+      }
+    },
+    {
+      "season": 2024,
+      "matchedPlayers": 273,
+      "edgeSelections": 61,
+      "edgeHitRate": 0.361,
+      "baselineHitRate": 0.402,
+      "positions": {
+        "QB": {
+          "matchedPlayers": 33,
+          "weights": {
+            "volume": 0.22,
+            "dominance": 0.16,
+            "efficiency": 0.1,
+            "production": 0.07,
+            "trajectory": 0.07,
+            "reversion": 0.15,
+            "floor": 0.1,
+            "context": 0.13
+          },
+          "selections": 3,
+          "edgeHitRate": 0.333,
+          "baselineHitRate": 0.25,
+          "lift": 0.083,
+          "regressionRisk": {
+            "weights": {
+              "reversion": 0.35,
+              "floor": 0.3,
+              "context": 0.35
+            },
+            "selections": 9,
+            "hitRate": 0.444,
+            "baselineHitRate": 0.491,
+            "lift": -0.046
+          }
+        },
+        "RB": {
+          "matchedPlayers": 88,
+          "weights": {
+            "volume": 0.38,
+            "dominance": 0.3,
+            "efficiency": 0.08,
+            "production": 0.12,
+            "trajectory": 0.12
+          },
+          "selections": 32,
+          "edgeHitRate": 0.5,
+          "baselineHitRate": 0.5,
+          "lift": 0,
+          "regressionRisk": {
+            "weights": {
+              "reversion": 0.7,
+              "context": 0.3
+            },
+            "selections": 13,
+            "hitRate": 0.462,
+            "baselineHitRate": 0.498,
+            "lift": -0.037
+          }
+        },
+        "WR": {
+          "matchedPlayers": 113,
+          "weights": {
+            "volume": 0.2,
+            "dominance": 0.28,
+            "efficiency": 0.08,
+            "production": 0.1,
+            "trajectory": 0.14,
+            "reversion": 0.2
+          },
+          "selections": 17,
+          "edgeHitRate": 0.176,
+          "baselineHitRate": 0.294,
+          "lift": -0.118,
+          "regressionRisk": {
+            "weights": {
+              "reversion": 0.7,
+              "context": 0.3
+            },
+            "selections": 23,
+            "hitRate": 0.435,
+            "baselineHitRate": 0.514,
+            "lift": -0.079
+          }
+        },
+        "TE": {
+          "matchedPlayers": 39,
+          "weights": {
+            "volume": 0.34,
+            "dominance": 0.31,
+            "efficiency": 0.06,
+            "production": 0.13,
+            "trajectory": 0.16
+          },
+          "selections": 9,
+          "edgeHitRate": 0.222,
+          "baselineHitRate": 0.306,
+          "lift": -0.083,
+          "regressionRisk": {
+            "weights": {
+              "reversion": 0.7,
+              "context": 0.3
+            },
+            "selections": 7,
+            "hitRate": 0.714,
+            "baselineHitRate": 0.529,
+            "lift": 0.186
+          }
+        }
+      }
+    },
+    {
+      "season": 2025,
+      "matchedPlayers": 281,
+      "edgeSelections": 55,
+      "edgeHitRate": 0.364,
+      "baselineHitRate": 0.335,
+      "positions": {
+        "QB": {
+          "matchedPlayers": 34,
+          "weights": {
+            "volume": 0.25,
+            "dominance": 0.18,
+            "efficiency": 0.12,
+            "production": 0.08,
+            "trajectory": 0.08,
+            "reversion": 0.17,
+            "floor": 0.12
+          },
+          "selections": 4,
+          "edgeHitRate": 0,
+          "baselineHitRate": 0.167,
+          "lift": -0.167,
+          "regressionRisk": {
+            "weights": {
+              "reversion": 0.35,
+              "floor": 0.45,
+              "context": 0.2
+            },
+            "selections": 5,
+            "hitRate": 0.4,
+            "baselineHitRate": 0.447,
+            "lift": -0.047
+          }
+        },
+        "RB": {
+          "matchedPlayers": 87,
+          "weights": {
+            "volume": 0.38,
+            "dominance": 0.3,
+            "efficiency": 0.08,
+            "production": 0.12,
+            "trajectory": 0.12
+          },
+          "selections": 26,
+          "edgeHitRate": 0.346,
+          "baselineHitRate": 0.383,
+          "lift": -0.036,
+          "regressionRisk": {
+            "weights": {
+              "reversion": 0.7,
+              "context": 0.3
+            },
+            "selections": 11,
+            "hitRate": 0.455,
+            "baselineHitRate": 0.485,
+            "lift": -0.03
+          }
+        },
+        "WR": {
+          "matchedPlayers": 119,
+          "weights": {
+            "volume": 0.2,
+            "dominance": 0.28,
+            "efficiency": 0.08,
+            "production": 0.1,
+            "trajectory": 0.14,
+            "reversion": 0.2
+          },
+          "selections": 22,
+          "edgeHitRate": 0.409,
+          "baselineHitRate": 0.322,
+          "lift": 0.087,
+          "regressionRisk": {
+            "weights": {
+              "reversion": 0.7,
+              "context": 0.3
+            },
+            "selections": 18,
+            "hitRate": 0.667,
+            "baselineHitRate": 0.52,
+            "lift": 0.147
+          }
+        },
+        "TE": {
+          "matchedPlayers": 41,
+          "weights": {
+            "volume": 0.22,
+            "dominance": 0.28,
+            "efficiency": 0.06,
+            "production": 0.1,
+            "trajectory": 0.14,
+            "reversion": 0.2
+          },
+          "selections": 3,
+          "edgeHitRate": 0.667,
+          "baselineHitRate": 0.25,
+          "lift": 0.417,
+          "regressionRisk": {
+            "weights": {
+              "reversion": 0.7,
+              "context": 0.3
+            },
+            "selections": 9,
+            "hitRate": 0.556,
+            "baselineHitRate": 0.388,
+            "lift": 0.167
+          }
+        }
+      }
+    }
+  ],
+  "aggregate": {
+    "edgeHitRate": 0.229,
+    "baselineHitRate": 0.208,
+    "lift": 0.021,
+    "allPositionLiftBeforeGate": -0.011,
+    "selections": 14
+  },
+  "positions": {
+    "QB": {
+      "edgeHitRate": 0.229,
+      "baselineHitRate": 0.208,
+      "lift": 0.021,
+      "acceptedCore": true,
+      "latestWeights": {
+        "volume": 0.25,
+        "dominance": 0.18,
+        "efficiency": 0.12,
+        "production": 0.08,
+        "trajectory": 0.08,
+        "reversion": 0.17,
+        "floor": 0.12
+      },
+      "regressionRisk": {
+        "hitRate": 0.361,
+        "baselineHitRate": 0.447,
+        "lift": -0.086,
+        "accepted": false,
+        "latestWeights": {
+          "reversion": 0.35,
+          "floor": 0.45,
+          "context": 0.2
+        }
+      }
+    },
+    "RB": {
+      "edgeHitRate": 0.357,
+      "baselineHitRate": 0.365,
+      "lift": -0.008,
+      "acceptedCore": false,
+      "latestWeights": {
+        "volume": 0.38,
+        "dominance": 0.3,
+        "efficiency": 0.08,
+        "production": 0.12,
+        "trajectory": 0.12
+      },
+      "regressionRisk": {
+        "hitRate": 0.44,
+        "baselineHitRate": 0.459,
+        "lift": -0.019,
+        "accepted": false,
+        "latestWeights": {
+          "reversion": 0.7,
+          "context": 0.3
+        }
+      }
+    },
+    "WR": {
+      "edgeHitRate": 0.301,
+      "baselineHitRate": 0.311,
+      "lift": -0.011,
+      "acceptedCore": false,
+      "latestWeights": {
+        "volume": 0.2,
+        "dominance": 0.28,
+        "efficiency": 0.08,
+        "production": 0.1,
+        "trajectory": 0.14,
+        "reversion": 0.2
+      },
+      "regressionRisk": {
+        "hitRate": 0.476,
+        "baselineHitRate": 0.512,
+        "lift": -0.036,
+        "accepted": false,
+        "latestWeights": {
+          "reversion": 0.7,
+          "context": 0.3
+        }
+      }
+    },
+    "TE": {
+      "edgeHitRate": 0.272,
+      "baselineHitRate": 0.285,
+      "lift": -0.013,
+      "acceptedCore": false,
+      "latestWeights": {
+        "volume": 0.22,
+        "dominance": 0.28,
+        "efficiency": 0.06,
+        "production": 0.1,
+        "trajectory": 0.14,
+        "reversion": 0.2
+      },
+      "regressionRisk": {
+        "hitRate": 0.536,
+        "baselineHitRate": 0.456,
+        "lift": 0.079,
+        "accepted": true,
+        "latestWeights": {
+          "reversion": 0.7,
+          "context": 0.3
+        }
+      }
+    }
+  },
+  "retainedHistoricalCorePositions": [
+    "QB"
+  ],
+  "rejectedHistoricalCorePositions": [
+    "RB",
+    "WR",
+    "TE"
+  ],
+  "regressionRiskAggregate": {
+    "selections": 32,
+    "hitRate": 0.536,
+    "baselineHitRate": 0.456,
+    "lift": 0.079
+  },
+  "retainedRegressionRiskPositions": [
+    "TE"
+  ],
+  "rejectedRegressionRiskPositions": [
+    "QB",
+    "RB",
+    "WR"
+  ],
+  "examples": [
+    {
+      "name": "Javonte Williams",
+      "position": "RB",
+      "marketPositionRank": 32,
+      "modelRank": 32,
+      "actualFinish": 12,
+      "signal": 0.071
+    },
+    {
+      "name": "Jaxon Smith-Njigba",
+      "position": "WR",
+      "marketPositionRank": 12,
+      "modelRank": 9,
+      "actualFinish": 2,
+      "signal": 0.723
+    }
+  ],
+  "reviewCohorts": {
+    "source": "data/inputs/edge-review-2025.json",
+    "summary": {
+      "breakout": {
+        "requested": 12,
+        "matched": 12,
+        "legacyCaught": 2,
+        "updatedCaught": 2
+      },
+      "regression": {
+        "requested": 8,
+        "matched": 8,
+        "legacyCaught": 1,
+        "updatedCaught": 1
+      }
+    },
+    "players": [
+      {
+        "cohort": "regression",
+        "name": "Justin Jefferson",
+        "position": "WR",
+        "projected": 316,
+        "actual": 202,
+        "miss": -114,
+        "clues": {
+          "priorTeamQbPassYards": 4319,
+          "priorTeamQbPassTds": 35,
+          "projectedStartingQb": "J.J. McCarthy",
+          "projectedStartingQbMissedRookieSeason": true
+        },
+        "sourceUrls": [
+          "https://github.com/nflverse/nflverse-data/releases/tag/player_stats"
+        ],
+        "marketRank": 3.76,
+        "marketPositionRank": 3,
+        "modelRank": 1,
+        "expectedGain": 4,
+        "actualFinish": 21,
+        "signal": 1.02,
+        "legacySignal": 1.061,
+        "legacyExpectedGain": 4,
+        "legacyEdgeCall": "upside",
+        "edgeCall": "upside",
+        "regressionRiskSignal": -0.04,
+        "expectedLoss": 0,
+        "regressionRiskCall": "neutral",
+        "validatedDownsideEdgeCall": "neutral",
+        "updatedEdgeCall": "upside",
+        "correctDirection": "downside",
+        "rawFeatures": {
+          "volume": 2.308,
+          "dominance": 0.701,
+          "efficiency": 1.674,
+          "production": 18.675,
+          "trajectory": -0.099,
+          "reversion": 0.257,
+          "floor": 0,
+          "context": -0.376,
+          "hasHistory": true
+        },
+        "normalizedFeatures": {
+          "volume": 1.328,
+          "dominance": 1.679,
+          "efficiency": 1.352,
+          "production": 1.783,
+          "trajectory": -0.877,
+          "reversion": 0.605,
+          "floor": 0,
+          "context": -1.278
+        },
+        "marketContext": {
+          "value": -0.376,
+          "team": "MIN",
+          "targetVacancy": 0.099,
+          "incomingReceivingYards": 91,
+          "qbChange": -0.643,
+          "competition": 6.6,
+          "teamTeTargetShare": 0.223,
+          "currentQb": "J.J. McCarthy"
+        }
+      },
+      {
+        "cohort": "regression",
+        "name": "Saquon Barkley",
+        "position": "RB",
+        "projected": 326,
+        "actual": 232,
+        "miss": -94,
+        "clues": {
+          "priorTouches": 378,
+          "priorScrimmageYards": 2283,
+          "priorYardsPerCarry": 5.8,
+          "projectedTouches": 380
+        },
+        "sourceUrls": [
+          "https://github.com/nflverse/nflverse-data/releases/tag/player_stats"
+        ],
+        "marketRank": 9.72,
+        "marketPositionRank": 3,
+        "modelRank": 1,
+        "expectedGain": 5,
+        "actualFinish": 14,
+        "signal": 1.335,
+        "legacySignal": 1.21,
+        "legacyExpectedGain": 5,
+        "legacyEdgeCall": "upside",
+        "edgeCall": "upside",
+        "regressionRiskSignal": 0.846,
+        "expectedLoss": 3,
+        "regressionRiskCall": "fade",
+        "validatedDownsideEdgeCall": "neutral",
+        "updatedEdgeCall": "upside",
+        "correctDirection": "downside",
+        "rawFeatures": {
+          "volume": 3.306,
+          "dominance": 2.311,
+          "efficiency": 1.019,
+          "production": 22.206,
+          "trajectory": 0.044,
+          "reversion": -1.072,
+          "floor": 0,
+          "context": 0,
+          "hasHistory": true
+        },
+        "normalizedFeatures": {
+          "volume": 1.277,
+          "dominance": 1.648,
+          "efficiency": 1.841,
+          "production": 1.802,
+          "trajectory": -0.07,
+          "reversion": -1.932,
+          "floor": 0,
+          "context": 1.689
+        },
+        "marketContext": {
+          "value": 0,
+          "team": "PHI",
+          "targetVacancy": 0.072,
+          "incomingReceivingYards": 268,
+          "qbChange": -0.002,
+          "competition": 3,
+          "teamTeTargetShare": 0.208,
+          "currentQb": "Jalen Hurts"
+        }
+      },
+      {
+        "cohort": "breakout",
+        "name": "Travis Etienne Jr.",
+        "position": "RB",
+        "projected": 132,
+        "actual": 253.9,
+        "miss": 121.9,
+        "clues": {
+          "scrimmageYards2023": 1484,
+          "receptions2023": 58,
+          "totalTds2023": 12,
+          "reboundCandidate": true
+        },
+        "sourceUrls": [
+          "https://www.nfl.com/players/travis-etienne/stats/"
+        ],
+        "marketRank": 98.77,
+        "marketPositionRank": 31,
+        "modelRank": 31,
+        "expectedGain": 0,
+        "actualFinish": 10,
+        "signal": 0.046,
+        "legacySignal": 0.368,
+        "legacyExpectedGain": 1,
+        "legacyEdgeCall": "neutral",
+        "edgeCall": "neutral",
+        "regressionRiskSignal": -1.864,
+        "expectedLoss": 0,
+        "regressionRiskCall": "neutral",
+        "validatedDownsideEdgeCall": "neutral",
+        "updatedEdgeCall": "neutral",
+        "correctDirection": "upside",
+        "rawFeatures": {
+          "volume": 2.837,
+          "dominance": 1.331,
+          "efficiency": 0.471,
+          "production": 8.68,
+          "trajectory": -0.368,
+          "reversion": 1.322,
+          "floor": 0,
+          "context": -0.453,
+          "hasHistory": true
+        },
+        "normalizedFeatures": {
+          "volume": 0.454,
+          "dominance": 0.293,
+          "efficiency": -0.722,
+          "production": -0.273,
+          "trajectory": -1.033,
+          "reversion": 2.285,
+          "floor": 0,
+          "context": 0.882
+        },
+        "marketContext": {
+          "value": -0.453,
+          "team": "JAX",
+          "targetVacancy": 0.394,
+          "incomingReceivingYards": 521,
+          "qbChange": 0.08,
+          "competition": 11.625,
+          "teamTeTargetShare": 0.253,
+          "currentQb": "Trevor Lawrence"
+        }
+      },
+      {
+        "cohort": "regression",
+        "name": "Evan Engram",
+        "position": "TE",
+        "projected": 169,
+        "actual": 103,
+        "miss": -66,
+        "clues": {
+          "coachPriorTeRoomTargetShare": 0.15,
+          "coachPriorTeRoomSeasons": 8,
+          "coachMaxTeTargetShareSince2015": 0.19,
+          "projectedTargets": 108
+        },
+        "sourceUrls": [],
+        "marketRank": 80.63,
+        "marketPositionRank": 7,
+        "modelRank": 6,
+        "expectedGain": 1,
+        "actualFinish": 26,
+        "signal": 0.187,
+        "legacySignal": 0.162,
+        "legacyExpectedGain": 1,
+        "legacyEdgeCall": "neutral",
+        "edgeCall": "neutral",
+        "regressionRiskSignal": -0.951,
+        "expectedLoss": 0,
+        "regressionRiskCall": "neutral",
+        "validatedDownsideEdgeCall": "neutral",
+        "updatedEdgeCall": "neutral",
+        "correctDirection": "downside",
+        "rawFeatures": {
+          "volume": 2.093,
+          "dominance": 0.239,
+          "efficiency": 0.669,
+          "production": 9.944,
+          "trajectory": -0.168,
+          "reversion": 0.6,
+          "floor": 0,
+          "context": -0.342,
+          "hasHistory": true
+        },
+        "normalizedFeatures": {
+          "volume": 1.169,
+          "dominance": -0.611,
+          "efficiency": -1.607,
+          "production": 0.121,
+          "trajectory": -1.032,
+          "reversion": 1.647,
+          "floor": 0,
+          "context": -0.673
+        },
+        "marketContext": {
+          "value": -0.342,
+          "team": "DEN",
+          "targetVacancy": 0.183,
+          "incomingReceivingYards": 518,
+          "qbChange": 0.056,
+          "competition": 3.992,
+          "teamTeTargetShare": 0.116,
+          "currentQb": "Bo Nix"
+        }
+      },
+      {
+        "cohort": "breakout",
+        "name": "Jaxon Smith-Njigba",
+        "position": "WR",
+        "projected": 241,
+        "actual": 359.9,
+        "miss": 118.9,
+        "clues": {
+          "priorReceptions": 100,
+          "priorReceivingYards": 1130,
+          "priorTargets": 137,
+          "departedTargetCompetition": "DK Metcalf"
+        },
+        "sourceUrls": [
+          "https://www.nfl.com/stats/player-stats/category/receiving/2024/reg/all/receivingtarget/desc"
+        ],
+        "marketRank": 20.69,
+        "marketPositionRank": 12,
+        "modelRank": 9,
+        "expectedGain": 3,
+        "actualFinish": 2,
+        "signal": 0.723,
+        "legacySignal": 1.059,
+        "legacyExpectedGain": 4,
+        "legacyEdgeCall": "upside",
+        "edgeCall": "upside",
+        "regressionRiskSignal": -0.017,
+        "expectedLoss": 0,
+        "regressionRiskCall": "neutral",
+        "validatedDownsideEdgeCall": "neutral",
+        "updatedEdgeCall": "upside",
+        "correctDirection": "upside",
+        "rawFeatures": {
+          "volume": 2.204,
+          "dominance": 0.563,
+          "efficiency": 1.456,
+          "production": 14.882,
+          "trajectory": 0.737,
+          "reversion": -0.253,
+          "floor": 0,
+          "context": 0.794,
+          "hasHistory": true
+        },
+        "normalizedFeatures": {
+          "volume": 1.004,
+          "dominance": 1.135,
+          "efficiency": 0.737,
+          "production": 0.938,
+          "trajectory": 1.114,
+          "reversion": -0.521,
+          "floor": 0,
+          "context": 1.273
+        },
+        "marketContext": {
+          "value": 0.794,
+          "team": "SEA",
+          "targetVacancy": 0.47,
+          "incomingReceivingYards": 1121,
+          "qbChange": 0.109,
+          "competition": 8.333,
+          "teamTeTargetShare": 0.2,
+          "currentQb": "Sam Darnold"
+        }
+      },
+      {
+        "cohort": "breakout",
+        "name": "Kyle Pitts Sr.",
+        "position": "TE",
+        "projected": 142,
+        "actual": 210.8,
+        "miss": 68.8,
+        "clues": {
+          "priorReceivingYards": 602,
+          "priorTargets": 74,
+          "priorYardsPerTarget": 8.1,
+          "priorReceptions40Plus": 3
+        },
+        "sourceUrls": [
+          "https://www.nfl.com/stats/player-stats/category/receiving/2024/REG/all/receivingreceptions/ASC"
+        ],
+        "marketRank": 155.79,
+        "marketPositionRank": 18,
+        "modelRank": 19,
+        "expectedGain": -1,
+        "actualFinish": 2,
+        "signal": -0.284,
+        "legacySignal": 0.092,
+        "legacyExpectedGain": 0,
+        "legacyEdgeCall": "neutral",
+        "edgeCall": "neutral",
+        "regressionRiskSignal": 0.07,
+        "expectedLoss": 0,
+        "regressionRiskCall": "neutral",
+        "validatedDownsideEdgeCall": "neutral",
+        "updatedEdgeCall": "neutral",
+        "correctDirection": "upside",
+        "rawFeatures": {
+          "volume": 1.678,
+          "dominance": 0.304,
+          "efficiency": 1.183,
+          "production": 7.718,
+          "trajectory": -0.196,
+          "reversion": 0.06,
+          "floor": 0,
+          "context": -0.403,
+          "hasHistory": true
+        },
+        "normalizedFeatures": {
+          "volume": -0.571,
+          "dominance": 0.042,
+          "efficiency": 0.08,
+          "production": -0.726,
+          "trajectory": -1.096,
+          "reversion": 0.256,
+          "floor": 0,
+          "context": -0.83
+        },
+        "marketContext": {
+          "value": -0.403,
+          "team": "ATL",
+          "targetVacancy": 0,
+          "incomingReceivingYards": 31,
+          "qbChange": -0.436,
+          "competition": 1.25,
+          "teamTeTargetShare": 0.161,
+          "currentQb": "Michael Penix Jr."
+        }
+      },
+      {
+        "cohort": "regression",
+        "name": "Tua Tagovailoa",
+        "position": "QB",
+        "projected": 276,
+        "actual": 161,
+        "miss": -115,
+        "clues": {
+          "priorPassingAdot": 5.7,
+          "rushYardsBelow75ThreeStraightYears": true,
+          "rushTdsThreeStraightYears": 0
+        },
+        "sourceUrls": [
+          "https://github.com/nflverse/nflverse-data/releases/tag/player_stats"
+        ],
+        "marketRank": 133.52,
+        "marketPositionRank": 21,
+        "modelRank": 22,
+        "expectedGain": -1,
+        "actualFinish": 24,
+        "signal": -0.177,
+        "legacySignal": 0.074,
+        "legacyExpectedGain": 0,
+        "legacyEdgeCall": "neutral",
+        "edgeCall": "neutral",
+        "regressionRiskSignal": 0.51,
+        "expectedLoss": 2,
+        "regressionRiskCall": "neutral",
+        "validatedDownsideEdgeCall": "neutral",
+        "updatedEdgeCall": "neutral",
+        "correctDirection": "downside",
+        "rawFeatures": {
+          "volume": 3.688,
+          "dominance": 0.436,
+          "efficiency": 1.674,
+          "production": 16.507,
+          "trajectory": 0.064,
+          "reversion": 0.032,
+          "floor": -0.98,
+          "context": 0.722,
+          "hasHistory": true
+        },
+        "normalizedFeatures": {
+          "volume": 0.371,
+          "dominance": -1.111,
+          "efficiency": 0.964,
+          "production": 0.032,
+          "trajectory": -0.306,
+          "reversion": 0.164,
+          "floor": -1.596,
+          "context": 0.753
+        },
+        "marketContext": {
+          "value": 0.722,
+          "team": "MIA",
+          "targetVacancy": 0.329,
+          "incomingReceivingYards": 866,
+          "qbChange": -0.139,
+          "competition": 0,
+          "teamTeTargetShare": 0.266,
+          "currentQb": "Tua Tagovailoa"
+        }
+      },
+      {
+        "cohort": "breakout",
+        "name": "Trevor Lawrence",
+        "position": "QB",
+        "projected": 279,
+        "actual": 338.2,
+        "miss": 59.2,
+        "clues": {
+          "rushYards2022To2023": 630,
+          "rushTds2022To2023": 9,
+          "priorSeasonInjurySuppressed": true
+        },
+        "sourceUrls": [
+          "https://static.clubs.nfl.com/image/upload/jaguars/qdhxpxkzzoiqjw6ng2wu"
+        ],
+        "marketRank": 115.67,
+        "marketPositionRank": 18,
+        "modelRank": 20,
+        "expectedGain": -2,
+        "actualFinish": 4,
+        "signal": -0.425,
+        "legacySignal": -0.191,
+        "legacyExpectedGain": -1,
+        "legacyEdgeCall": "neutral",
+        "edgeCall": "neutral",
+        "regressionRiskSignal": -0.33,
+        "expectedLoss": 0,
+        "regressionRiskCall": "neutral",
+        "validatedDownsideEdgeCall": "neutral",
+        "updatedEdgeCall": "neutral",
+        "correctDirection": "upside",
+        "rawFeatures": {
+          "volume": 3.525,
+          "dominance": 0.86,
+          "efficiency": 0.774,
+          "production": 14.52,
+          "trajectory": -0.264,
+          "reversion": 0.108,
+          "floor": 1.217,
+          "context": 0.434,
+          "hasHistory": true
+        },
+        "normalizedFeatures": {
+          "volume": -0.874,
+          "dominance": -0.616,
+          "efficiency": -0.674,
+          "production": -0.554,
+          "trajectory": -1.046,
+          "reversion": 0.303,
+          "floor": 0.51,
+          "context": -0.029
+        },
+        "marketContext": {
+          "value": 0.434,
+          "team": "JAX",
+          "targetVacancy": 0.394,
+          "incomingReceivingYards": 521,
+          "qbChange": 0.08,
+          "competition": 0,
+          "teamTeTargetShare": 0.253,
+          "currentQb": "Trevor Lawrence"
+        }
+      },
+      {
+        "cohort": "breakout",
+        "name": "Matthew Stafford",
+        "position": "QB",
+        "projected": 274,
+        "actual": 350.4,
+        "miss": 76.4,
+        "clues": {
+          "priorPassYards": 3762,
+          "priorPassTds": 20,
+          "priorPassAttempts": 517,
+          "priorPassTdRate": 0.039,
+          "incomingWeapon": "Davante Adams"
+        },
+        "sourceUrls": [
+          "https://www.fanduel.com/research/matthew-stafford-nfl-fantasy-outlook-2025"
+        ],
+        "marketRank": 143.12,
+        "marketPositionRank": 22,
+        "modelRank": 24,
+        "expectedGain": -2,
+        "actualFinish": 3,
+        "signal": -0.469,
+        "legacySignal": -0.204,
+        "legacyExpectedGain": -1,
+        "legacyEdgeCall": "neutral",
+        "edgeCall": "neutral",
+        "regressionRiskSignal": 0.118,
+        "expectedLoss": 0,
+        "regressionRiskCall": "neutral",
+        "validatedDownsideEdgeCall": "neutral",
+        "updatedEdgeCall": "neutral",
+        "correctDirection": "upside",
+        "rawFeatures": {
+          "volume": 3.6,
+          "dominance": 0.448,
+          "efficiency": 0.964,
+          "production": 13.411,
+          "trajectory": -0.044,
+          "reversion": 0.333,
+          "floor": -0.472,
+          "context": 0.886,
+          "hasHistory": true
+        },
+        "normalizedFeatures": {
+          "volume": -0.303,
+          "dominance": -1.097,
+          "efficiency": -0.329,
+          "production": -0.881,
+          "trajectory": -0.569,
+          "reversion": 0.715,
+          "floor": -1.351,
+          "context": 1.2
+        },
+        "marketContext": {
+          "value": 0.886,
+          "team": "LA",
+          "targetVacancy": 0.399,
+          "incomingReceivingYards": 1063,
+          "qbChange": 0.051,
+          "competition": 0,
+          "teamTeTargetShare": 0.153,
+          "currentQb": "Matthew Stafford"
+        }
+      },
+      {
+        "cohort": "regression",
+        "name": "Chuba Hubbard",
+        "position": "RB",
+        "projected": 258,
+        "actual": 125,
+        "miss": -133,
+        "clues": {
+          "projectedCarryShare": 0.7,
+          "addedCompetitor": "Rico Dowdle",
+          "competitorPriorRushYards": 1079,
+          "competitorPriorReceptions": 39
+        },
+        "sourceUrls": [
+          "https://github.com/nflverse/nflverse-data/releases/tag/player_stats"
+        ],
+        "marketRank": 51.64,
+        "marketPositionRank": 18,
+        "modelRank": 14,
+        "expectedGain": 4,
+        "actualFinish": 38,
+        "signal": 1.008,
+        "legacySignal": 1.077,
+        "legacyExpectedGain": 4,
+        "legacyEdgeCall": "upside",
+        "edgeCall": "upside",
+        "regressionRiskSignal": 1.463,
+        "expectedLoss": 6,
+        "regressionRiskCall": "fade",
+        "validatedDownsideEdgeCall": "neutral",
+        "updatedEdgeCall": "upside",
+        "correctDirection": "downside",
+        "rawFeatures": {
+          "volume": 3.177,
+          "dominance": 1.91,
+          "efficiency": 0.651,
+          "production": 16.107,
+          "trajectory": 0.215,
+          "reversion": -0.895,
+          "floor": 0,
+          "context": -1.41,
+          "hasHistory": true
+        },
+        "normalizedFeatures": {
+          "volume": 1.118,
+          "dominance": 1.323,
+          "efficiency": 0.119,
+          "production": 1.141,
+          "trajectory": 0.33,
+          "reversion": -1.738,
+          "floor": 0,
+          "context": -0.822
+        },
+        "marketContext": {
+          "value": -1.41,
+          "team": "CAR",
+          "targetVacancy": 0.097,
+          "incomingReceivingYards": 264,
+          "qbChange": -0.012,
+          "competition": 19.281,
+          "teamTeTargetShare": 0.198,
+          "currentQb": "Bryce Young"
+        }
+      },
+      {
+        "cohort": "breakout",
+        "name": "Rico Dowdle",
+        "position": "RB",
+        "projected": 84,
+        "actual": 216.3,
+        "miss": 132.3,
+        "clues": {
+          "priorRushYards": 1079,
+          "priorYardsPerCarry": 4.6,
+          "priorReceptions": 39
+        },
+        "sourceUrls": [
+          "https://www.nfl.com/players/rico-dowdle/stats/career"
+        ],
+        "marketRank": 160.44,
+        "marketPositionRank": 48,
+        "modelRank": 44,
+        "expectedGain": 4,
+        "actualFinish": 18,
+        "signal": 0.881,
+        "legacySignal": 1.045,
+        "legacyExpectedGain": 4,
+        "legacyEdgeCall": "upside",
+        "edgeCall": "upside",
+        "regressionRiskSignal": 1.647,
+        "expectedLoss": 7,
+        "regressionRiskCall": "fade",
+        "validatedDownsideEdgeCall": "neutral",
+        "updatedEdgeCall": "upside",
+        "correctDirection": "upside",
+        "rawFeatures": {
+          "volume": 3.047,
+          "dominance": 1.618,
+          "efficiency": 0.686,
+          "production": 12.363,
+          "trajectory": 0.923,
+          "reversion": -1.107,
+          "floor": 0,
+          "context": -1.5,
+          "hasHistory": true
+        },
+        "normalizedFeatures": {
+          "volume": 0.864,
+          "dominance": 0.803,
+          "efficiency": 0.285,
+          "production": 0.428,
+          "trajectory": 1.985,
+          "reversion": -1.932,
+          "floor": 0,
+          "context": -0.982
+        },
+        "marketContext": {
+          "value": -1.5,
+          "team": "CAR",
+          "targetVacancy": 0.097,
+          "incomingReceivingYards": 264,
+          "qbChange": -0.012,
+          "competition": 22.067,
+          "teamTeTargetShare": 0.198,
+          "currentQb": "Bryce Young"
+        }
+      },
+      {
+        "cohort": "regression",
+        "name": "Jerry Jeudy",
+        "position": "WR",
+        "projected": 232,
+        "actual": 121,
+        "miss": -111,
+        "clues": {
+          "priorSingleGameReceivingYards": 235,
+          "priorReceivingYards": 1229,
+          "priorSingleGameYardShare": 0.191,
+          "priorTargets": 145,
+          "priorReceivingTds": 4
+        },
+        "sourceUrls": [
+          "https://github.com/nflverse/nflverse-data/releases/tag/player_stats"
+        ],
+        "marketRank": 69.76,
+        "marketPositionRank": 33,
+        "modelRank": 32,
+        "expectedGain": 1,
+        "actualFinish": 50,
+        "signal": 0.342,
+        "legacySignal": 0.943,
+        "legacyExpectedGain": 4,
+        "legacyEdgeCall": "upside",
+        "edgeCall": "neutral",
+        "regressionRiskSignal": 1.276,
+        "expectedLoss": 5,
+        "regressionRiskCall": "fade",
+        "validatedDownsideEdgeCall": "neutral",
+        "updatedEdgeCall": "neutral",
+        "correctDirection": "downside",
+        "rawFeatures": {
+          "volume": 2.254,
+          "dominance": 0.562,
+          "efficiency": 1.368,
+          "production": 14.171,
+          "trajectory": 0.45,
+          "reversion": -0.885,
+          "floor": 0,
+          "context": 0.308,
+          "hasHistory": true
+        },
+        "normalizedFeatures": {
+          "volume": 1.161,
+          "dominance": 1.13,
+          "efficiency": 0.49,
+          "production": 0.773,
+          "trajectory": 0.43,
+          "reversion": -1.914,
+          "floor": 0,
+          "context": 0.213
+        },
+        "marketContext": {
+          "value": 0.308,
+          "team": "CLE",
+          "targetVacancy": 0.248,
+          "incomingReceivingYards": 375,
+          "qbChange": -0.225,
+          "competition": 6.091,
+          "teamTeTargetShare": 0.286,
+          "currentQb": "Deshaun Watson"
+        }
+      },
+      {
+        "cohort": "breakout",
+        "name": "Kenneth Gainwell",
+        "position": "RB",
+        "projected": 66,
+        "actual": 221.3,
+        "miss": 155.3,
+        "clues": {
+          "careerReceptions": 102,
+          "careerTargets": 138,
+          "careerCatchRate": 0.739
+        },
+        "sourceUrls": [
+          "https://fantasydata.com/nfl/kenneth-gainwell-fantasy/22562"
+        ],
+        "marketRank": 269.55,
+        "marketPositionRank": 77,
+        "modelRank": 81,
+        "expectedGain": -4,
+        "actualFinish": 16,
+        "signal": -1.025,
+        "legacySignal": -0.273,
+        "legacyExpectedGain": -1,
+        "legacyEdgeCall": "neutral",
+        "edgeCall": "downside",
+        "regressionRiskSignal": -0.647,
+        "expectedLoss": 0,
+        "regressionRiskCall": "neutral",
+        "validatedDownsideEdgeCall": "neutral",
+        "updatedEdgeCall": "downside",
+        "correctDirection": "upside",
+        "rawFeatures": {
+          "volume": 2.038,
+          "dominance": 0.631,
+          "efficiency": 0.473,
+          "production": 3.682,
+          "trajectory": -0.331,
+          "reversion": 0.401,
+          "floor": 0,
+          "context": -0.587,
+          "hasHistory": true
+        },
+        "normalizedFeatures": {
+          "volume": -1.109,
+          "dominance": -0.953,
+          "efficiency": -0.71,
+          "production": -1.224,
+          "trajectory": -0.946,
+          "reversion": 0.648,
+          "floor": 0,
+          "context": 0.643
+        },
+        "marketContext": {
+          "value": -0.587,
+          "team": "PIT",
+          "targetVacancy": 0.545,
+          "incomingReceivingYards": 2294,
+          "qbChange": -0.376,
+          "competition": 12.7,
+          "teamTeTargetShare": 0.235,
+          "currentQb": "Aaron Rodgers"
+        }
+      },
+      {
+        "cohort": "breakout",
+        "name": "Drake Maye",
+        "position": "QB",
+        "projected": 285,
+        "actual": 352,
+        "miss": 67,
+        "clues": {
+          "priorRushYards": 421,
+          "priorRushAttempts": 54,
+          "priorYardsPerCarry": 7.8
+        },
+        "sourceUrls": [
+          "https://www.nfl.com/players/drake-maye/stats/"
+        ],
+        "marketRank": 104.16,
+        "marketPositionRank": 16,
+        "modelRank": 17,
+        "expectedGain": -1,
+        "actualFinish": 2,
+        "signal": -0.215,
+        "legacySignal": 0.13,
+        "legacyExpectedGain": 1,
+        "legacyEdgeCall": "neutral",
+        "edgeCall": "neutral",
+        "regressionRiskSignal": -0.346,
+        "expectedLoss": 0,
+        "regressionRiskCall": "neutral",
+        "validatedDownsideEdgeCall": "neutral",
+        "updatedEdgeCall": "neutral",
+        "correctDirection": "upside",
+        "rawFeatures": {
+          "volume": 3.534,
+          "dominance": 1.756,
+          "efficiency": 0.76,
+          "production": 13.626,
+          "trajectory": 0.18,
+          "reversion": 0,
+          "floor": 1.066,
+          "context": 0.728,
+          "hasHistory": true
+        },
+        "normalizedFeatures": {
+          "volume": -0.803,
+          "dominance": 0.432,
+          "efficiency": -0.7,
+          "production": -0.817,
+          "trajectory": -0.025,
+          "reversion": 0.106,
+          "floor": 0.344,
+          "context": 0.771
+        },
+        "marketContext": {
+          "value": 0.728,
+          "team": "NE",
+          "targetVacancy": 0.023,
+          "incomingReceivingYards": 874,
+          "qbChange": 0.196,
+          "competition": 0,
+          "teamTeTargetShare": 0.33,
+          "currentQb": "Drake Maye"
+        }
+      },
+      {
+        "cohort": "regression",
+        "name": "Jonnu Smith",
+        "position": "TE",
+        "projected": 135,
+        "actual": 85,
+        "miss": -50,
+        "clues": {
+          "priorReceivingYards": 884,
+          "previousCareerHighReceivingYards": 582,
+          "careerHighIncrease": 0.519,
+          "destinationTeCommittee": [
+            "Pat Freiermuth",
+            "Darnell Washington"
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/nflverse/nflverse-data/releases/tag/player_stats"
+        ],
+        "marketRank": 153.32,
+        "marketPositionRank": 17,
+        "modelRank": 15,
+        "expectedGain": 2,
+        "actualFinish": 30,
+        "signal": 0.418,
+        "legacySignal": 0.883,
+        "legacyExpectedGain": 4,
+        "legacyEdgeCall": "upside",
+        "edgeCall": "neutral",
+        "regressionRiskSignal": 1.283,
+        "expectedLoss": 5,
+        "regressionRiskCall": "fade",
+        "validatedDownsideEdgeCall": "downside",
+        "updatedEdgeCall": "downside",
+        "correctDirection": "downside",
+        "rawFeatures": {
+          "volume": 2.019,
+          "dominance": 0.395,
+          "efficiency": 1.627,
+          "production": 13.076,
+          "trajectory": 0.461,
+          "reversion": -0.962,
+          "floor": 0,
+          "context": -0.244,
+          "hasHistory": true
+        },
+        "normalizedFeatures": {
+          "volume": 0.858,
+          "dominance": 0.967,
+          "efficiency": 1.665,
+          "production": 1.313,
+          "trajectory": 0.41,
+          "reversion": -1.652,
+          "floor": 0,
+          "context": -0.424
+        },
+        "marketContext": {
+          "value": -0.244,
+          "team": "PIT",
+          "targetVacancy": 0.545,
+          "incomingReceivingYards": 2294,
+          "qbChange": -0.376,
+          "competition": 7.94,
+          "teamTeTargetShare": 0.235,
+          "currentQb": "Aaron Rodgers"
+        }
+      },
+      {
+        "cohort": "breakout",
+        "name": "Alec Pierce",
+        "position": "WR",
+        "projected": 71,
+        "actual": 183.3,
+        "miss": 112.3,
+        "clues": {
+          "priorYardsPerReception": 22.3,
+          "priorReceivingYards": 824,
+          "priorReceivingTds": 7,
+          "priorReceptions40Plus": 7
+        },
+        "sourceUrls": [
+          "https://www.nfl.com/players/alec-pierce/stats/career"
+        ],
+        "marketRank": 206.11,
+        "marketPositionRank": 73,
+        "modelRank": 73,
+        "expectedGain": 0,
+        "actualFinish": 28,
+        "signal": -0.027,
+        "legacySignal": 0.42,
+        "legacyExpectedGain": 2,
+        "legacyEdgeCall": "neutral",
+        "edgeCall": "neutral",
+        "regressionRiskSignal": 0.474,
+        "expectedLoss": 2,
+        "regressionRiskCall": "neutral",
+        "validatedDownsideEdgeCall": "neutral",
+        "updatedEdgeCall": "neutral",
+        "correctDirection": "upside",
+        "rawFeatures": {
+          "volume": 1.67,
+          "dominance": 0.404,
+          "efficiency": 1.553,
+          "production": 10.088,
+          "trajectory": 0.47,
+          "reversion": -0.186,
+          "floor": 0,
+          "context": -0.114,
+          "hasHistory": true
+        },
+        "normalizedFeatures": {
+          "volume": -0.643,
+          "dominance": 0.165,
+          "efficiency": 1.011,
+          "production": -0.173,
+          "trajectory": 0.478,
+          "reversion": -0.374,
+          "floor": 0,
+          "context": -0.707
+        },
+        "marketContext": {
+          "value": -0.114,
+          "team": "IND",
+          "targetVacancy": 0.13,
+          "incomingReceivingYards": 25,
+          "qbChange": -0.263,
+          "competition": 7.643,
+          "teamTeTargetShare": 0.152,
+          "currentQb": "Anthony Richardson Sr."
+        }
+      },
+      {
+        "cohort": "breakout",
+        "name": "Parker Washington",
+        "position": "WR",
+        "projected": 44,
+        "actual": 172.7,
+        "miss": 128.7,
+        "clues": {
+          "collegeBreakoutAge": 18.5,
+          "collegeBreakoutAgePercentile": 0.96,
+          "collegeTargetShare": 0.206
+        },
+        "sourceUrls": [
+          "https://www.playerprofiler.com/nfl/parker-washington/"
+        ],
+        "marketRank": 278.54,
+        "marketPositionRank": 103,
+        "modelRank": 105,
+        "expectedGain": -2,
+        "actualFinish": 27,
+        "signal": -0.486,
+        "legacySignal": -0.017,
+        "legacyExpectedGain": 0,
+        "legacyEdgeCall": "neutral",
+        "edgeCall": "neutral",
+        "regressionRiskSignal": -0.195,
+        "expectedLoss": 0,
+        "regressionRiskCall": "neutral",
+        "validatedDownsideEdgeCall": "neutral",
+        "updatedEdgeCall": "neutral",
+        "correctDirection": "upside",
+        "rawFeatures": {
+          "volume": 1.535,
+          "dominance": 0.238,
+          "efficiency": 0.955,
+          "production": 6.929,
+          "trajectory": 0.678,
+          "reversion": -0.085,
+          "floor": 0,
+          "context": 0.669,
+          "hasHistory": true
+        },
+        "normalizedFeatures": {
+          "volume": -1.058,
+          "dominance": -0.842,
+          "efficiency": -0.675,
+          "production": -0.905,
+          "trajectory": 0.972,
+          "reversion": -0.15,
+          "floor": 0,
+          "context": 1
+        },
+        "marketContext": {
+          "value": 0.669,
+          "team": "JAX",
+          "targetVacancy": 0.394,
+          "incomingReceivingYards": 521,
+          "qbChange": 0.08,
+          "competition": 7.824,
+          "teamTeTargetShare": 0.253,
+          "currentQb": "Trevor Lawrence"
+        }
+      },
+      {
+        "cohort": "regression",
+        "name": "Cam Ward",
+        "position": "QB",
+        "projected": 257,
+        "actual": 187,
+        "miss": -70,
+        "clues": {
+          "collegeSacks": 112,
+          "collegeDropbacks": 1669,
+          "collegeSackRate": 0.067,
+          "destinationPriorSacksAllowed": 52
+        },
+        "sourceUrls": [],
+        "marketRank": 196.47,
+        "marketPositionRank": 27,
+        "modelRank": 26,
+        "expectedGain": 1,
+        "actualFinish": 21,
+        "signal": 0.177,
+        "legacySignal": -1.64,
+        "legacyExpectedGain": -7,
+        "legacyEdgeCall": "downside",
+        "edgeCall": "neutral",
+        "regressionRiskSignal": -0.155,
+        "expectedLoss": 0,
+        "regressionRiskCall": "neutral",
+        "validatedDownsideEdgeCall": "neutral",
+        "updatedEdgeCall": "neutral",
+        "correctDirection": "upside",
+        "rawFeatures": {
+          "volume": 0,
+          "dominance": 0,
+          "efficiency": 0,
+          "production": 0,
+          "trajectory": 1.1,
+          "reversion": 0,
+          "floor": 0,
+          "context": 0.73,
+          "hasHistory": false
+        },
+        "normalizedFeatures": {
+          "volume": 0,
+          "dominance": 0,
+          "efficiency": 0,
+          "production": 0,
+          "trajectory": 2.212,
+          "reversion": 0,
+          "floor": 0,
+          "context": 0.776
+        },
+        "marketContext": {
+          "value": 0.73,
+          "team": "TEN",
+          "targetVacancy": 0.274,
+          "incomingReceivingYards": 876,
+          "qbChange": 0.449,
+          "competition": 0,
+          "teamTeTargetShare": 0.265,
+          "currentQb": "Cameron Ward"
+        }
+      },
+      {
+        "cohort": "breakout",
+        "name": "Harold Fannin Jr.",
+        "position": "TE",
+        "projected": 54,
+        "actual": 186.4,
+        "miss": 132.4,
+        "clues": {
+          "finalCollegeReceptions": 117,
+          "finalCollegeReceivingYards": 1555,
+          "finalCollegeReceivingTds": 10
+        },
+        "sourceUrls": [
+          "https://www.cfbstats.com/2024/player/71/1177260/receiving/split.html"
+        ],
+        "marketRank": 275.76,
+        "marketPositionRank": 34,
+        "modelRank": 33,
+        "expectedGain": 1,
+        "actualFinish": 6,
+        "signal": 0.131,
+        "legacySignal": -1.328,
+        "legacyExpectedGain": -5,
+        "legacyEdgeCall": "downside",
+        "edgeCall": "neutral",
+        "regressionRiskSignal": 0.355,
+        "expectedLoss": 1,
+        "regressionRiskCall": "neutral",
+        "validatedDownsideEdgeCall": "neutral",
+        "updatedEdgeCall": "neutral",
+        "correctDirection": "upside",
+        "rawFeatures": {
+          "volume": 0,
+          "dominance": 0,
+          "efficiency": 0,
+          "production": 0,
+          "trajectory": 0.692,
+          "reversion": 0,
+          "floor": 0,
+          "context": -0.543,
+          "hasHistory": false
+        },
+        "normalizedFeatures": {
+          "volume": 0,
+          "dominance": 0,
+          "efficiency": 0,
+          "production": 0,
+          "trajectory": 0.938,
+          "reversion": 0,
+          "floor": 0,
+          "context": -1.184
+        },
+        "marketContext": {
+          "value": -0.543,
+          "team": "CLE",
+          "targetVacancy": 0.248,
+          "incomingReceivingYards": 375,
+          "qbChange": -0.225,
+          "competition": 12.777,
+          "teamTeTargetShare": 0.286,
+          "currentQb": "Deshaun Watson"
+        }
+      },
+      {
+        "cohort": "breakout",
+        "name": "Oronde Gadsden II",
+        "position": "TE",
+        "projected": 57,
+        "actual": 131.4,
+        "miss": 74.4,
+        "clues": {
+          "finalCollegeReceptions": 73,
+          "finalCollegeReceivingYards": 934,
+          "finalCollegeReceivingTds": 7
+        },
+        "sourceUrls": [
+          "https://cuse.com/sports/football/roster/oronde-gadsden%20ii/23324"
+        ],
+        "marketRank": 285.98,
+        "marketPositionRank": 39,
+        "modelRank": 40,
+        "expectedGain": -1,
+        "actualFinish": 14,
+        "signal": -0.131,
+        "legacySignal": -1.627,
+        "legacyExpectedGain": -7,
+        "legacyEdgeCall": "downside",
+        "edgeCall": "neutral",
+        "regressionRiskSignal": 0.374,
+        "expectedLoss": 1,
+        "regressionRiskCall": "neutral",
+        "validatedDownsideEdgeCall": "neutral",
+        "updatedEdgeCall": "neutral",
+        "correctDirection": "upside",
+        "rawFeatures": {
+          "volume": 0,
+          "dominance": 0,
+          "efficiency": 0,
+          "production": 0,
+          "trajectory": -0.125,
+          "reversion": 0,
+          "floor": 0,
+          "context": -0.567,
+          "hasHistory": false
+        },
+        "normalizedFeatures": {
+          "volume": 0,
+          "dominance": 0,
+          "efficiency": 0,
+          "production": 0,
+          "trajectory": -0.934,
+          "reversion": 0,
+          "floor": 0,
+          "context": -1.245
+        },
+        "marketContext": {
+          "value": -0.567,
+          "team": "LAC",
+          "targetVacancy": 0.289,
+          "incomingReceivingYards": 1512,
+          "qbChange": 0.054,
+          "competition": 12.567,
+          "teamTeTargetShare": 0.22,
+          "currentQb": "Justin Herbert"
+        }
+      }
+    ],
+    "unmatched": []
+  },
+  "draftAvailability": {
+    "modelVersion": "return-risk-2026.6",
+    "method": "Position and market-band uncertainty proxy derived from historical preseason FantasyPros consensus rank standard deviation and expert best/worst ranges, then conditioned on each intervening team's roster demand. It supports an estimated return-risk band, not a guaranteed draft probability.",
+    "uncertaintyByPosition": {
+      "QB": {
+        "early": 12,
+        "middle": 22,
+        "late": 39
+      },
+      "RB": {
+        "early": 11,
+        "middle": 21,
+        "late": 39
+      },
+      "WR": {
+        "early": 8,
+        "middle": 21,
+        "late": 40
+      },
+      "TE": {
+        "early": 10,
+        "middle": 26,
+        "late": 42
+      }
+    }
+  },
+  "accepted": true,
+  "limitation": "Historical public projection and injury snapshots are not complete enough for time-safe folds. The rolling test validates the price-aware statistical core and retained downside component; current consensus-projection disagreement, live injuries, and current OL availability are evaluated in production but cannot be reconstructed prospectively for every historical season."
+}

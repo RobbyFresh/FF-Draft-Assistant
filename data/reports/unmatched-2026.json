@@ -1,0 +1,1465 @@
+{
+  "season": 2026,
+  "generatedAt": "2026-08-20T18:19:50.450Z",
+  "top240Count": 257,
+  "matchedTop240": 257,
+  "coverageTop240": 100,
+  "unmatched": [
+    {
+      "name": "Jonathon Brooks",
+      "team": "CAR",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "MarShawn Lloyd",
+      "team": "GB",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Tank Dell",
+      "team": "HOU",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jordan James",
+      "team": "SF",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Deshaun Watson",
+      "team": "CLE",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Brandon Aiyuk",
+      "team": "SF",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Hollywood Brown",
+      "team": "PHI",
+      "position": "WR",
+      "rosterMatched": false,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jarquez Hunter",
+      "team": "LAR",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Joe Mixon",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Erick All Jr.",
+      "team": "CIN",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Joshua Palmer",
+      "team": "BUF",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Tommy Myers",
+      "team": "FA",
+      "position": "TE",
+      "rosterMatched": false,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Mitch Tinsley",
+      "team": "CIN",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Damien Martinez",
+      "team": "GB",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Scotty Miller",
+      "team": "CHI",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Frank Gore Jr.",
+      "team": "BUF",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Odell Beckham Jr.",
+      "team": "NYG",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Donovan Edwards",
+      "team": "MIA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Kenny McIntosh",
+      "team": "SEA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Kendric Pryor",
+      "team": "CIN",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Michael Woods II",
+      "team": "DEN",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Pierre Strong Jr.",
+      "team": "GB",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "David Sills V",
+      "team": "TB",
+      "position": "WR",
+      "rosterMatched": false,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Alexander Mattison",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Salvon Ahmed",
+      "team": "CHI",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jordan Akins",
+      "team": "FA",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jordan Waters",
+      "team": "LAR",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Sincere McCormick",
+      "team": "SF",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Royce Freeman",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jacob Cowing",
+      "team": "SF",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Michael Burton",
+      "team": "CLE",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Quez Watkins",
+      "team": "PHI",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Montorie Foster Jr.",
+      "team": "SEA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Russell Gage Jr.",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Ja'Quinden Jackson",
+      "team": "PHI",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Patrick Taylor Jr.",
+      "team": "SF",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jermar Jefferson",
+      "team": "MIN",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Will Howard",
+      "team": "PIT",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Kye Robichaux",
+      "team": "DET",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Diontae Johnson",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jeff Wilson Jr.",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Ainias Smith",
+      "team": "CAR",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Bub Means",
+      "team": "NO",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jaheim Bell",
+      "team": "PIT",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jermaine Burton",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Maurice Alexander",
+      "team": "CHI",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Montrell Johnson Jr.",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Terrace Marshall Jr.",
+      "team": "MIA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Tyler Scott",
+      "team": "LAR",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Will Levis",
+      "team": "TEN",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "K.J. Osborn",
+      "team": "TEN",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Darrynton Evans",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jalen Reagor",
+      "team": "MIA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Joshua Cephus",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jabari Small",
+      "team": "DET",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Deontay Burnett",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Brandon Johnson",
+      "team": "LV",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Nathan Carter",
+      "team": "ATL",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Gus Edwards",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Tyrion Davis-Price",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "D'Onta Foreman",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Irv Smith Jr.",
+      "team": "FA",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Zack Moss",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Mike Boone",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Ke'Shawn Vaughn",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Andrew Beck",
+      "team": "NYJ",
+      "position": "TE",
+      "rosterMatched": false,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Joel Wilson",
+      "team": "TEN",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Deon Jackson",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Drew Ogletree",
+      "team": "IND",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Brevin Jordan",
+      "team": "HOU",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Elijah Dotson",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Gavin Bartholomew",
+      "team": "MIN",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Sean McKeon",
+      "team": "IND",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jake Briningstool",
+      "team": "KC",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Cole Turner",
+      "team": "MIA",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "CJ Dippre",
+      "team": "NE",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Kenny Yeboah",
+      "team": "ARI",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Luke Lachey",
+      "team": "FA",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Devonte Boyd",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Kadarius Toney",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Dante Miller",
+      "team": "NYG",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Carson Steele",
+      "team": "PHI",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jase McClellan",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Carlos Washington Jr.",
+      "team": "MIA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jonathan Ward",
+      "team": "BAL",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Ricky White III",
+      "team": "SEA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Blake Watson",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Kevin Harris",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Israel Abanikanda",
+      "team": "DAL",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "JaMycal Hasty",
+      "team": "NE",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Lan Larison",
+      "team": "NE",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Raheem Blackshear",
+      "team": "DET",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Chris Collier",
+      "team": "LV",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Eli Pancol",
+      "team": "IND",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Cody Schrader",
+      "team": "DEN",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Isaiah Neyor",
+      "team": "GB",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Quali Conley",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Nick Nash",
+      "team": "WAS",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Luke Grimm",
+      "team": "LAC",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Andrew Armstrong",
+      "team": "KC",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jordan Moore",
+      "team": "CIN",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "JP Richardson",
+      "team": "CHI",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Brennan Presley",
+      "team": "LAR",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Tru Edwards",
+      "team": "LAR",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jackson Meeks",
+      "team": "DET",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jamaal Pritchett",
+      "team": "NYJ",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Traeshon Holden",
+      "team": "DAL",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jimmy Holiday",
+      "team": "KC",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jeremiah Webb",
+      "team": "NE",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Stephen Gosnell",
+      "team": "BUF",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Hakeem Butler",
+      "team": "DEN",
+      "position": "WR",
+      "rosterMatched": false,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Josh Kelly",
+      "team": "HOU",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Johnny Wilson",
+      "team": "PHI",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Danny Gray",
+      "team": "PHI",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Sederrick Cunningham",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": false,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Mario Williams",
+      "team": "LAR",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Brenden Rice",
+      "team": "GB",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Tejhaun Palmer",
+      "team": "NE",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Cornelius Johnson",
+      "team": "BAL",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Dennis Houston",
+      "team": "TB",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Luke Floriea",
+      "team": "CLE",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Lance McCutcheon",
+      "team": "TEN",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "AJ Henning",
+      "team": "MIA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Trey Palmer",
+      "team": "NO",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Junior Bergen",
+      "team": "NYJ",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Xavier Guillory",
+      "team": "BAL",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Dan Chisena",
+      "team": "CAR",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Irv Charles",
+      "team": "SEA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Phillip Dorsett II",
+      "team": "LV",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Bryson Green",
+      "team": "ARI",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Courtney Jackson",
+      "team": "TEN",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Ihmir Smith-Marsette",
+      "team": "ARI",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Colton Dowell",
+      "team": "SF",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Max Duggan",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Nick Foles",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Thayer Thomas",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "T.Y. Hilton",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Tyler Hoosman",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Braxton Burmeister",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Austin Aune",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Tanner McLachlan",
+      "team": "SF",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Javon Baker",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Robert Griffin",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Alfred Morris",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Ramel Keyton",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Dayton Wade",
+      "team": "BAL",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Austin Stogner",
+      "team": "FA",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Lincoln Sefcik",
+      "team": "FA",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Matt Barkley",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Matt Schaub",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jarvis Landry",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "AJ McCarron",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Josh McCown",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Maxx Williams",
+      "team": "FA",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Matt Ryan",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "MyCole Pruitt",
+      "team": "FA",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Dres Anderson",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Nate Sudfeld",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Josh Ferguson",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Reggie Diggs",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Davis Webb",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Chad Williams",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Sefo Liufau",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Alonzo Moore",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Gabe Marks",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Josh Rosen",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Chase Daniel",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Luke Falk",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Trenton Cannon",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Josh Adams",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Kurt Benkert",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Devin Gray",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Vyncint Smith",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Armanti Foreman",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Peter Pujals",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jalen Hurd",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Devine Ozigbo",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Preston Williams",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Dexter Williams",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jaylen Smith",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "L.J. Scott",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Alex Wesley",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Kahale Warring",
+      "team": "FA",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Tyree Mayfield",
+      "team": "FA",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jason Moore",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Reggie White",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Kyle Shurmur",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jacob Dolegala",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Drew Anderson",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Eric Dungey",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Darrin Hall",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "David Blough",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Adam Choice",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Trayone Gray",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jeff Smith",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "A.J. Ouellette",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Marquis Young",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Chris Streveler",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "J.J. Taylor",
+      "team": "FA",
+      "position": "RB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Brian Lewerke",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jaylon Moore",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Aleva Hifo",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Jalen Morton",
+      "team": "IND",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Matt Seybert",
+      "team": "FA",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "D'Eriq King",
+      "team": "FA",
+      "position": "QB",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Seth Green",
+      "team": "FA",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Drew Estrada",
+      "team": "FA",
+      "position": "WR",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    },
+    {
+      "name": "Josh Babicz",
+      "team": "FA",
+      "position": "TE",
+      "rosterMatched": true,
+      "reason": "No prior-season player-stat match"
+    }
+  ]
+}

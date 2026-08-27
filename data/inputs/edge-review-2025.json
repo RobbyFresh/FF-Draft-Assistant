@@ -1,0 +1,187 @@
+{
+  "schemaVersion": "1.0.0",
+  "season": 2025,
+  "purpose": "User-supplied breakout/regression review cohort. These rows are evaluation fixtures and sparse research context, not training labels for production scoring.",
+  "players": [
+    {
+      "cohort": "breakout",
+      "position": "QB",
+      "name": "Matthew Stafford",
+      "projectedPoints": 274,
+      "actualPoints": 350.4,
+      "clues": { "priorPassYards": 3762, "priorPassTds": 20, "priorPassAttempts": 517, "priorPassTdRate": 0.039, "incomingWeapon": "Davante Adams" },
+      "sourceUrls": ["https://www.fanduel.com/research/matthew-stafford-nfl-fantasy-outlook-2025"]
+    },
+    {
+      "cohort": "breakout",
+      "position": "QB",
+      "name": "Drake Maye",
+      "projectedPoints": 285,
+      "actualPoints": 352,
+      "clues": { "priorRushYards": 421, "priorRushAttempts": 54, "priorYardsPerCarry": 7.8 },
+      "sourceUrls": ["https://www.nfl.com/players/drake-maye/stats/"]
+    },
+    {
+      "cohort": "breakout",
+      "position": "QB",
+      "name": "Trevor Lawrence",
+      "projectedPoints": 279,
+      "actualPoints": 338.2,
+      "clues": { "rushYards2022To2023": 630, "rushTds2022To2023": 9, "priorSeasonInjurySuppressed": true },
+      "sourceUrls": ["https://static.clubs.nfl.com/image/upload/jaguars/qdhxpxkzzoiqjw6ng2wu"]
+    },
+    {
+      "cohort": "breakout",
+      "position": "RB",
+      "name": "Kenneth Gainwell",
+      "projectedPoints": 66,
+      "actualPoints": 221.3,
+      "clues": { "careerReceptions": 102, "careerTargets": 138, "careerCatchRate": 0.739 },
+      "sourceUrls": ["https://fantasydata.com/nfl/kenneth-gainwell-fantasy/22562"]
+    },
+    {
+      "cohort": "breakout",
+      "position": "RB",
+      "name": "Rico Dowdle",
+      "projectedPoints": 84,
+      "actualPoints": 216.3,
+      "clues": { "priorRushYards": 1079, "priorYardsPerCarry": 4.6, "priorReceptions": 39 },
+      "sourceUrls": ["https://www.nfl.com/players/rico-dowdle/stats/career"]
+    },
+    {
+      "cohort": "breakout",
+      "position": "RB",
+      "name": "Travis Etienne",
+      "projectedPoints": 132,
+      "actualPoints": 253.9,
+      "clues": { "scrimmageYards2023": 1484, "receptions2023": 58, "totalTds2023": 12, "reboundCandidate": true },
+      "sourceUrls": ["https://www.nfl.com/players/travis-etienne/stats/"]
+    },
+    {
+      "cohort": "breakout",
+      "position": "WR",
+      "name": "Parker Washington",
+      "projectedPoints": 44,
+      "actualPoints": 172.7,
+      "clues": { "collegeBreakoutAge": 18.5, "collegeBreakoutAgePercentile": 0.96, "collegeTargetShare": 0.206 },
+      "sourceUrls": ["https://www.playerprofiler.com/nfl/parker-washington/"]
+    },
+    {
+      "cohort": "breakout",
+      "position": "WR",
+      "name": "Jaxon Smith-Njigba",
+      "projectedPoints": 241,
+      "actualPoints": 359.9,
+      "clues": { "priorReceptions": 100, "priorReceivingYards": 1130, "priorTargets": 137, "departedTargetCompetition": "DK Metcalf" },
+      "sourceUrls": ["https://www.nfl.com/stats/player-stats/category/receiving/2024/reg/all/receivingtarget/desc"]
+    },
+    {
+      "cohort": "breakout",
+      "position": "WR",
+      "name": "Alec Pierce",
+      "projectedPoints": 71,
+      "actualPoints": 183.3,
+      "clues": { "priorYardsPerReception": 22.3, "priorReceivingYards": 824, "priorReceivingTds": 7, "priorReceptions40Plus": 7 },
+      "sourceUrls": ["https://www.nfl.com/players/alec-pierce/stats/career"]
+    },
+    {
+      "cohort": "breakout",
+      "position": "TE",
+      "name": "Harold Fannin Jr.",
+      "projectedPoints": 54,
+      "actualPoints": 186.4,
+      "clues": { "finalCollegeReceptions": 117, "finalCollegeReceivingYards": 1555, "finalCollegeReceivingTds": 10 },
+      "sourceUrls": ["https://www.cfbstats.com/2024/player/71/1177260/receiving/split.html"]
+    },
+    {
+      "cohort": "breakout",
+      "position": "TE",
+      "name": "Oronde Gadsden II",
+      "projectedPoints": 57,
+      "actualPoints": 131.4,
+      "clues": { "finalCollegeReceptions": 73, "finalCollegeReceivingYards": 934, "finalCollegeReceivingTds": 7 },
+      "sourceUrls": ["https://cuse.com/sports/football/roster/oronde-gadsden%20ii/23324"]
+    },
+    {
+      "cohort": "breakout",
+      "position": "TE",
+      "name": "Kyle Pitts",
+      "projectedPoints": 142,
+      "actualPoints": 210.8,
+      "clues": { "priorReceivingYards": 602, "priorTargets": 74, "priorYardsPerTarget": 8.1, "priorReceptions40Plus": 3 },
+      "sourceUrls": ["https://www.nfl.com/stats/player-stats/category/receiving/2024/REG/all/receivingreceptions/ASC"]
+    },
+    {
+      "cohort": "regression",
+      "position": "QB",
+      "name": "Tua Tagovailoa",
+      "projectedPoints": 276,
+      "actualPoints": 161,
+      "clues": { "priorPassingAdot": 5.7, "rushYardsBelow75ThreeStraightYears": true, "rushTdsThreeStraightYears": 0 },
+      "sourceUrls": ["https://github.com/nflverse/nflverse-data/releases/tag/player_stats"]
+    },
+    {
+      "cohort": "regression",
+      "position": "QB",
+      "name": "Cam Ward",
+      "projectedPoints": 257,
+      "actualPoints": 187,
+      "clues": { "collegeSacks": 112, "collegeDropbacks": 1669, "collegeSackRate": 0.067, "destinationPriorSacksAllowed": 52 },
+      "sourceUrls": []
+    },
+    {
+      "cohort": "regression",
+      "position": "RB",
+      "name": "Chuba Hubbard",
+      "projectedPoints": 258,
+      "actualPoints": 125,
+      "clues": { "projectedCarryShare": 0.7, "addedCompetitor": "Rico Dowdle", "competitorPriorRushYards": 1079, "competitorPriorReceptions": 39 },
+      "sourceUrls": ["https://github.com/nflverse/nflverse-data/releases/tag/player_stats"]
+    },
+    {
+      "cohort": "regression",
+      "position": "RB",
+      "name": "Saquon Barkley",
+      "projectedPoints": 326,
+      "actualPoints": 232,
+      "clues": { "priorTouches": 378, "priorScrimmageYards": 2283, "priorYardsPerCarry": 5.8, "projectedTouches": 380 },
+      "sourceUrls": ["https://github.com/nflverse/nflverse-data/releases/tag/player_stats"]
+    },
+    {
+      "cohort": "regression",
+      "position": "WR",
+      "name": "Justin Jefferson",
+      "projectedPoints": 316,
+      "actualPoints": 202,
+      "clues": { "priorTeamQbPassYards": 4319, "priorTeamQbPassTds": 35, "projectedStartingQb": "J.J. McCarthy", "projectedStartingQbMissedRookieSeason": true },
+      "sourceUrls": ["https://github.com/nflverse/nflverse-data/releases/tag/player_stats"]
+    },
+    {
+      "cohort": "regression",
+      "position": "WR",
+      "name": "Jerry Jeudy",
+      "projectedPoints": 232,
+      "actualPoints": 121,
+      "clues": { "priorSingleGameReceivingYards": 235, "priorReceivingYards": 1229, "priorSingleGameYardShare": 0.191, "priorTargets": 145, "priorReceivingTds": 4 },
+      "sourceUrls": ["https://github.com/nflverse/nflverse-data/releases/tag/player_stats"]
+    },
+    {
+      "cohort": "regression",
+      "position": "TE",
+      "name": "Evan Engram",
+      "projectedPoints": 169,
+      "actualPoints": 103,
+      "clues": { "coachPriorTeRoomTargetShare": 0.15, "coachPriorTeRoomSeasons": 8, "coachMaxTeTargetShareSince2015": 0.19, "projectedTargets": 108 },
+      "sourceUrls": []
+    },
+    {
+      "cohort": "regression",
+      "position": "TE",
+      "name": "Jonnu Smith",
+      "projectedPoints": 135,
+      "actualPoints": 85,
+      "clues": { "priorReceivingYards": 884, "previousCareerHighReceivingYards": 582, "careerHighIncrease": 0.519, "destinationTeCommittee": ["Pat Freiermuth", "Darnell Washington"] },
+      "sourceUrls": ["https://github.com/nflverse/nflverse-data/releases/tag/player_stats"]
+    }
+  ]
+}

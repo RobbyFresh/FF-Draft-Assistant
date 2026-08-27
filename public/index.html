@@ -3,61 +3,145 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Fantasy Football Draft Assistant (2025)</title>
-    <link rel="stylesheet" href="/styles.css?v=3" />
+    <title>Fantasy Football Draft Assistant (2026)</title>
+    <link rel="stylesheet" href="/styles.css?v=2026.10" />
   </head>
   <body>
     <header class="site-header">
-      <h1 id="page-title">Fantasy Football Draft Assistant (2025)</h1>
-      <div id="status" class="status tip-inline">Loading workbook…</div>
-      <button id="refresh-page" class="btn header-refresh" title="Refresh data">Refresh</button>
+      <h1 id="page-title">Fantasy Football Draft Assistant (2026)</h1>
+      <div id="status" class="status tip-inline">Loading 2026 workbook…</div>
+      <div class="header-actions">
+        <button id="league-setup" class="btn" type="button">League Setup</button>
+        <button id="import-draft" class="btn" type="button">Import Picks</button>
+        <button id="refresh-page" class="btn" type="button" title="Clear this draft session">Clear Draft</button>
+      </div>
     </header>
 
-    <main class="container" style="position:relative;">
-      <nav id="tabs" class="tabs" aria-label="Sheets">
-        <button id="boom-toggle" class="btn boom-btn" aria-pressed="false" title="Highlight Boom/Bust rows">BOOM / BUST</button>
-        <div class="search-container">
-          <input id="player-search" class="search-input" type="search" placeholder="Search players..." aria-label="Search players" />
+    <main class="container">
+      <section id="draft-clock" class="draft-clock" aria-live="polite">
+        <div class="clock-primary">
+          <span class="clock-kicker">ON THE CLOCK</span>
+          <strong id="clock-team">Set up your league</strong>
+          <span id="clock-pick" class="clock-pick">—</span>
         </div>
-      </nav>
-      <section id="sheet-container" class="sheet-container"></section>
+        <label class="clock-override">Assign next pick to
+          <select id="clock-team-override" aria-label="Override team for the next pick"></select>
+        </label>
+        <div class="clock-next">Your next pick <strong id="next-my-pick">—</strong></div>
+        <div class="clock-last-drafted">Last drafted <strong id="last-drafted-player">—</strong></div>
+        <button id="undo-pick" class="btn btn-undo" type="button" disabled>Undo Last Pick</button>
+      </section>
+      <nav id="tabs" class="tabs" aria-label="Scoring formats"></nav>
+      <section id="sheet-container" class="sheet-container" aria-live="polite"></section>
     </main>
 
-    <aside id="my-team" class="my-team" aria-label="My Team Sidebar">
-      <div class="pane" style="display:flex;flex-direction:column;min-height:0;">
-        <div class="my-team-header"><span>My Team</span><button class="btn btn-reset" id="reset-all" title="Reset roster and selections">Reset</button></div>
-        <div class="roster-controls">
-          <div class="controls">
-            <select id="slot-type" aria-label="Slot type">
-              <option value="QB">QB</option>
-              <option value="RB">RB</option>
-              <option value="WR">WR</option>
-              <option value="TE">TE</option>
-              <option value="FLEX">FLEX</option>
-              <option value="SFLX">SUPERFLEX</option>
-              <option value="K">K</option>
-              <option value="DST">DST</option>
-              <option value="BENCH">BENCH</option>
-            </select>
-            <button class="btn" id="add-slot" title="Add slot">Add</button>
-            <button class="btn" id="remove-slot" title="Remove slot">Remove</button>
-          </div>
+    <aside id="draft-sidebar" class="my-team" aria-label="Live Draft Room">
+      <div id="sidebar-resizer" class="sidebar-resizer" role="separator" aria-orientation="vertical" aria-label="Resize draft room sidebar" tabindex="0"></div>
+      <div class="pane decision-pane">
+        <div class="my-team-header">
+          <span class="sidebar-title-group">Will He Make It Back?
+            <button id="risk-info-button" class="info-button" type="button" aria-label="How Return Risk statuses work" aria-haspopup="dialog">i</button>
+          </span>
+          <select id="league-profile-select" aria-label="Active league profile"></select>
         </div>
-        <div id="roster-grid" class="roster-grid"></div>
+        <div class="decision-search">
+          <input id="risk-player-search" type="search" placeholder="Add an available player…" aria-label="Search available players to track" autocomplete="off" />
+          <div id="risk-search-results" class="risk-search-results" role="listbox" aria-label="Available player matches"></div>
+        </div>
+        <div id="decision-list" class="decision-list"></div>
       </div>
       <div id="pane-splitter" class="pane-splitter" role="separator" aria-orientation="horizontal" aria-label="Resize panes" tabindex="0"></div>
-      <div class="pane">
-        <div class="my-team-header">Taken</div>
-        <ul id="taken-list" class="my-team-list" style="overflow:auto;flex:1;min-height:0;"></ul>
+      <div class="pane league-pane">
+        <div class="my-team-header">
+          <span id="league-pane-title">League Needs</span>
+          <button id="league-view-toggle" class="btn sidebar-view-toggle" type="button">My Team</button>
+          <span id="draft-progress" class="draft-progress">0 picks</span>
+        </div>
+        <div id="league-grid" class="league-grid"></div>
       </div>
     </aside>
 
     <footer class="site-footer">
-      <span>Served locally by Express. Data updates when you refresh.</span>
+      <span>2026 workbook plus offline ADP Edge research. No third-party requests are made during a live draft.</span>
     </footer>
 
-    <script src="/app.js?v=2" defer></script>
+    <dialog id="edge-dialog" class="edge-dialog" aria-labelledby="edge-dialog-title">
+      <form method="dialog"><button class="edge-dialog-close" aria-label="Close ADP Edge details">×</button></form>
+      <div id="edge-dialog-content"></div>
+    </dialog>
+
+    <dialog id="risk-info-dialog" class="edge-dialog risk-info-dialog" aria-labelledby="risk-info-title">
+      <form method="dialog"><button class="edge-dialog-close" aria-label="Close Return Risk explanation">×</button></form>
+      <h2 id="risk-info-title">How “Will He Make It Back?” Works</h2>
+      <p><strong>Return Risk</strong> estimates the urgency that a tracked player will be selected before your next turn. It starts with that player's current board rank and market ADP, then scales the player-specific probability for every opponent pick using configured starter and flex openings, tier scarcity, and recent position runs. Positional need cannot create risk independently of the player's rank. Open dedicated slots carry the most pressure; bench-only picks are discounted while useful starter slots remain. Superflex preserves strong QB2 demand. Without a dedicated TE slot, tight ends are treated as flex candidates and weighted primarily by projected points against RB/WR/TE alternatives.</p>
+      <dl class="status-guide">
+        <div><dt><span class="decision-label take-now">TAKE NOW</span></dt><dd>70%+ Return Risk. The player is unlikely enough to survive that waiting is a meaningful gamble.</dd></div>
+        <div><dt><span class="decision-label pivot">PIVOT</span></dt><dd>60–69% Return Risk. The outcome is uncertain; compare the player with alternatives and your roster priorities.</dd></div>
+        <div><dt><span class="decision-label can-wait">CAN WAIT</span></dt><dd>Below 60% Return Risk. The player currently has a reasonable chance to remain available.</dd></div>
+      </dl>
+      <p><strong>Reading the count:</strong> if you are on pick #46 and pick again at #51, your next turn is five selections away but is the sixth available row—your current pick plus four opponent picks, then #51. The white line appears above that sixth row.</p>
+      <p class="edge-limit">These labels measure availability urgency, not player quality. ADP Edge remains a separate value signal, and Return Risk is an estimate rather than a guarantee.</p>
+    </dialog>
+
+    <dialog id="league-dialog" class="draft-dialog" aria-labelledby="league-dialog-title">
+      <form id="league-form">
+        <div class="dialog-heading">
+          <div><span class="eyebrow">DRAFT PROFILE</span><h2 id="league-dialog-title">League Setup</h2></div>
+          <button class="dialog-close" type="button" data-close-dialog="league-dialog" aria-label="Close league setup">×</button>
+        </div>
+        <div class="form-grid">
+          <label>League name<input id="league-name" required maxlength="40" /></label>
+          <label>Scoring<select id="league-scoring"><option value="standard">Standard</option><option value="halfPpr">Half PPR</option><option value="ppr">Full PPR</option><option value="superflex">Superflex PPR</option></select></label>
+          <label>Teams<input id="league-team-count" type="number" min="4" max="20" value="12" required /></label>
+          <label>Your draft slot<input id="league-user-slot" type="number" min="1" max="20" value="1" required /></label>
+          <label>Rounds<input id="league-rounds" type="number" min="1" max="40" value="17" required /></label>
+        </div>
+        <fieldset><legend>Shared roster template</legend><div id="league-roster-fields" class="roster-field-grid"></div></fieldset>
+        <fieldset><legend>Team names <span>(optional)</span></legend><div id="league-team-fields" class="team-field-grid"></div></fieldset>
+        <div class="dialog-actions">
+          <button id="delete-profile" class="btn btn-danger" type="button">Delete Profile</button>
+          <button class="btn" type="button" data-close-dialog="league-dialog">Cancel</button>
+          <button class="btn btn-primary" type="submit">Save Profile</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="import-dialog" class="draft-dialog" aria-labelledby="import-dialog-title">
+      <form id="import-form">
+        <div class="dialog-heading">
+          <div><span class="eyebrow">CATCH UP FAST</span><h2 id="import-dialog-title">Import Draft Picks</h2></div>
+          <button class="dialog-close" type="button" data-close-dialog="import-dialog" aria-label="Close import">×</button>
+        </div>
+        <p>Paste one chronological pick per line. Use <code>Team Name — Player</code>, or only a player name to follow the configured snake order.</p>
+        <textarea id="import-text" rows="9" placeholder="Team 1 — Jahmyr Gibbs&#10;Team 2 — Bijan Robinson&#10;Ja'Marr Chase"></textarea>
+        <label id="legacy-import-option" class="check-row"><input id="include-legacy" type="checkbox" /> Include the preserved legacy Taken list</label>
+        <div id="import-summary" class="import-summary" aria-live="polite"></div>
+        <div id="import-preview" class="import-preview"></div>
+        <div class="dialog-actions">
+          <button class="btn" type="button" data-close-dialog="import-dialog">Cancel</button>
+          <button id="preview-import" class="btn" type="button">Preview</button>
+          <button id="apply-import" class="btn btn-primary" type="submit" disabled>Apply Ready Picks</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="team-dialog" class="draft-dialog team-dialog" aria-labelledby="team-dialog-title">
+      <div class="dialog-heading"><h2 id="team-dialog-title">Team Roster</h2><button class="dialog-close" type="button" data-close-dialog="team-dialog" aria-label="Close team roster">×</button></div>
+      <div id="team-dialog-content"></div>
+    </dialog>
+
+    <dialog id="pick-dialog" class="draft-dialog pick-dialog" aria-labelledby="pick-dialog-title">
+      <form id="pick-form">
+        <div class="dialog-heading"><h2 id="pick-dialog-title">Correct Pick</h2><button class="dialog-close" type="button" data-close-dialog="pick-dialog" aria-label="Close pick correction">×</button></div>
+        <p id="pick-dialog-player"></p>
+        <label>Fantasy team<select id="pick-team-select"></select></label>
+        <div class="dialog-actions"><button id="undraft-player" class="btn btn-danger" type="button">Undraft Player</button><button class="btn btn-primary" type="submit">Move Player</button></div>
+      </form>
+    </dialog>
+
+    <div id="draft-toast" class="draft-toast" role="status" aria-live="polite" hidden><span id="draft-toast-text"></span><button id="toast-undo" type="button">Undo</button></div>
+
+    <script src="/draft-room.js?v=2026.10" defer></script>
+    <script src="/app.js?v=2026.10" defer></script>
   </body>
-  </html>
-
-
+</html>

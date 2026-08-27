@@ -6,7 +6,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "build:edge": "node scripts/build-edge-data.mjs --season 2026 --workbook \"Fantasy Football Cheat Sheet with Boom Outlier 2026.xlsx\"",
+    "backtest:edge": "node scripts/backtest-edge.mjs",
+    "test": "node tests/draft-room.js && node tests/validate.js && node tests/vercel-api.js"
   },
   "keywords": [
     "excel",
