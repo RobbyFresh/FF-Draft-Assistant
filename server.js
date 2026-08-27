@@ -6,7 +6,9 @@ const XLSX = require('xlsx');
 
 // Configuration
 const PORT = process.env.PORT || 3000;
-const EXCEL_FILENAME = 'Fantasy Football Cheat Sheet with Boom Outlier 2025.xlsx';
+const SEASON = 2026;
+const DATA_VERSION = '2026.5';
+const EXCEL_FILENAME = `Fantasy Football Cheat Sheet with Boom Outlier ${SEASON}.xlsx`;
 const EXCEL_PATH = path.join(__dirname, EXCEL_FILENAME);
 
 const app = express();
@@ -23,12 +25,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 // Utility to load workbook into JSON representation
-function loadWorkbookToJson() {
-  if (!fs.existsSync(EXCEL_PATH)) {
-    return { error: `Excel file not found at ${EXCEL_PATH}` };
+function loadWorkbookToJson(excelPath = EXCEL_PATH, fileName = EXCEL_FILENAME) {
+  if (!fs.existsSync(excelPath)) {
+    return { error: `Excel file not found at ${excelPath}` };
   }
 
-  const workbook = XLSX.readFile(EXCEL_PATH, { cellDates: true });
+  const workbook = XLSX.readFile(excelPath, { cellDates: true });
 
   const sheets = workbook.SheetNames.map((sheetName) => {
     const sheet = workbook.Sheets[sheetName];
@@ -42,7 +44,7 @@ function loadWorkbookToJson() {
     return { name: sheetName, rows };
   });
 
-  return { fileName: EXCEL_FILENAME, sheets };
+  return { season: SEASON, dataVersion: DATA_VERSION, fileName, sheets };
 }
 
 // API endpoint to fetch workbook JSON
@@ -64,10 +66,14 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.listen(PORT, () => {
-  const exists = fs.existsSync(EXCEL_PATH);
-  console.log(`Server listening on http://localhost:${PORT}`);
-  console.log(`Excel file ${exists ? 'found' : 'NOT found'} at: ${EXCEL_PATH}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    const exists = fs.existsSync(EXCEL_PATH);
+    console.log(`Server listening on http://localhost:${PORT}`);
+    console.log(`Excel file ${exists ? 'found' : 'NOT found'} at: ${EXCEL_PATH}`);
+  });
+}
+
+module.exports = { app, loadWorkbookToJson };
 
 

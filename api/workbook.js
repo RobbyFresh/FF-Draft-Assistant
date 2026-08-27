@@ -6,7 +6,9 @@ const XLSX = require('xlsx');
 // Looks for the Excel file in several common locations within the deployment
 module.exports = async (req, res) => {
   try {
-    const fileName = process.env.EXCEL_FILENAME || 'Fantasy Football Cheat Sheet with Boom Outlier 2025.xlsx';
+    const season = 2026;
+    const dataVersion = '2026.5';
+    const fileName = process.env.EXCEL_FILENAME || `Fantasy Football Cheat Sheet with Boom Outlier ${season}.xlsx`;
 
     // Candidate paths inside the deployed bundle
     const candidates = [
@@ -48,7 +50,7 @@ module.exports = async (req, res) => {
     });
 
     res.setHeader('Cache-Control', 'no-store');
-    return res.status(200).json({ fileName: path.basename(excelPath), sheets });
+    return res.status(200).json({ season, dataVersion, fileName, sheets });
   } catch (err) {
     console.error('Failed to load workbook (vercel api):', err);
     return res.status(500).json({ error: 'Failed to load workbook' });
