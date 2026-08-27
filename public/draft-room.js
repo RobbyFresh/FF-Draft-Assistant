@@ -360,6 +360,11 @@
       || String(a?.name || '').localeCompare(String(b?.name || ''), undefined, { sensitivity: 'base' }));
   }
 
+  function returnRiskLabel(risk) {
+    const value = Number(risk) || 0;
+    return value >= 70 ? 'take-now' : value >= 55 ? 'pivot' : 'can-wait';
+  }
+
   // If an opponent has multiple picks before the user returns, later picks
   // should see a roster advanced by the earlier selection. Use configured
   // needs to choose a representative alternative player for that earlier
@@ -469,7 +474,7 @@
       const risk = Math.round(clamp(rosterRankPressure * contextMultiplier * 100, 2, 97));
       const rosterFit = teamNeedScore(profile, session, profile.userTeamId, pos, scheduled.round, rosterAllocations.get(profile.userTeamId));
       const priority = Math.round(clamp(risk * 0.72 + tierCliff * 18 + rosterFit * 10, 0, 100));
-      const label = risk >= 70 ? 'take-now' : risk >= 60 ? 'pivot' : 'can-wait';
+      const label = returnRiskLabel(risk);
       const reasons = [
         `${intervening.length} opponent selection${intervening.length === 1 ? '' : 's'} occur before your ${userCoords.round}.${userCoords.roundPick} pick.`,
         `${needPicks} ${pos}-need opportunit${needPicks === 1 ? 'y' : 'ies'} across ${needTeams} intervening team${needTeams === 1 ? '' : 's'}; board rank ${Math.round(boardRank * 10) / 10}, market ADP ${Math.round(marketRank * 10) / 10}, next pick #${nextUserPick}.`,
@@ -624,6 +629,7 @@
     playerKey,
     recordPick,
     rosterNeeds,
+    returnRiskLabel,
     sortByDisplayRank,
     teamForPick,
     teamNeedScore,

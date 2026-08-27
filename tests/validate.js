@@ -198,7 +198,7 @@ assert(htmlSource.includes('id="league-view-toggle"') && appSource.includes('ren
 assert(htmlSource.includes('id="risk-player-search"') && appSource.includes('availableWatchMatches'), 'Return Risk must use a manual available-player search');
 assert(htmlSource.includes('id="risk-info-button"') && htmlSource.includes('id="risk-info-dialog"'), 'Return Risk statuses must have an accessible in-app explanation');
 assert(htmlSource.includes('id="last-drafted-player"') && appSource.includes('DraftRoom.lastDraftedPick(draftSession)'), 'the clock bar must display the latest recorded player');
-assert(htmlSource.includes('70%+ Return Risk') && htmlSource.includes('60–69% Return Risk') && htmlSource.includes('Below 60% Return Risk'), 'the status guide must document the current thresholds');
+assert(htmlSource.includes('70%+ Return Risk') && htmlSource.includes('55–69% Return Risk') && htmlSource.includes('Below 55% Return Risk'), 'the status guide must document the current thresholds');
 assert(!appSource.includes('const shortlisted = []'), 'Return Risk must not auto-fill an ADP Edge shortlist');
 assert(!draftRoomSource.includes('ADP Edge') && !draftRoomSource.includes('edgeScore *'), 'Return Risk recommendations must remain independent from ADP Edge');
 assert(appSource.includes('draftSession.watchlist') && appSource.includes('removeWatchPlayer'), 'manual watchlist choices must be stored and removable');

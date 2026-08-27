@@ -39,6 +39,10 @@ assert.deepEqual(
   ['First Tie A', 'First Tie B', 'Market Fallback', 'Late'],
   'Will He Make It Back players must display by active scoring-format rank, not watch order or priority',
 );
+assert.equal(DraftRoom.returnRiskLabel(54), 'can-wait');
+assert.equal(DraftRoom.returnRiskLabel(55), 'pivot');
+assert.equal(DraftRoom.returnRiskLabel(69), 'pivot');
+assert.equal(DraftRoom.returnRiskLabel(70), 'take-now');
 
 let session = DraftRoom.newSession(profile);
 assert.deepEqual(session.watchlist, [], 'a new draft must start with an empty manual return-risk watchlist');
@@ -166,8 +170,8 @@ assert.equal(jaydenRisk.boardSlot, 6, '#51 must be displayed as the sixth availa
 assert.equal(jaydenRisk.opponentPicks, 4, 'four opponent picks occur after the current user pick');
 assert.equal(jaydenRisk.needTeams, 2);
 assert.equal(jaydenRisk.needPicks, 4, 'both QB-needy teams pick twice before #51');
-assert(jaydenRisk.risk < 70 && jaydenRisk.risk >= 60);
-assert.equal(jaydenRisk.label, 'pivot', '60–69% urgency must remain a pivot under the stricter threshold');
+assert(jaydenRisk.risk < 70 && jaydenRisk.risk >= 55);
+assert.equal(jaydenRisk.label, 'pivot', '55–69% urgency must be a pivot');
 assert(lutherRisk.risk >= 70);
 assert.equal(lutherRisk.label, 'take-now', 'a WR already above the next-pick rank should not be a generic pivot');
 
